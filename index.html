@@ -1,1 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ben's Collection — Timeless Elegance">
+  <title>Ben's Collection | Timeless Elegance</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050914;
+      color: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(5, 9, 20, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 16px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #d4af37;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 150px 8% 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(12, 39, 84, 0.7), transparent 55%),
+        linear-gradient(135deg, #050914, #071a36);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 90px);
+      color: #d4af37;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .hero h2 {
+      font-size: clamp(22px, 4vw, 38px);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #bbb;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 30px;
+      background: #d4af37;
+      color: #050914;
+      font-weight: bold;
+      margin: 7px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212,175,55,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #d4af37;
+      border: 1px solid #d4af37;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #aaa;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+    }
+
+    .product {
+      background: linear-gradient(145deg, #0b1425, #071020);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: 0.35s;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212,175,55,0.65);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .watch-image {
+      height: 280px;
+      background: #0a0f18;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #777;
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .watch-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-info h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #d4af37;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .order-btn {
+      display: block;
+      text-align: center;
+      padding: 11px;
+      border-radius: 8px;
+      background: #d4af37;
+      color: #050914;
+      font-weight: bold;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #07101f;
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about-content p {
+      color: #bbb;
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    /* SOCIAL */
+    .social {
+      text-align: center;
+    }
+
+    .social-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-btn {
+      padding: 14px 25px;
+      border: 1px solid #d4af37;
+      border-radius: 30px;
+      color: #d4af37;
+      transition: 0.3s;
+    }
+
+    .social-btn:hover {
+      background: #d4af37;
+      color: #050914;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #03060d;
+      color: #777;
+      border-top: 1px solid rgba(212,175,55,0.15);
+    }
+
+    footer strong {
+      color: #d4af37;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Ben's Collection</div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <h1>Ben's Collection</h1>
+
+      <h2>Timeless Elegance</h2>
+
+      <p>
+        Discover our exclusive selection of men's watches,
+        combining elegance, style and character.
+      </p>
+
+      <a class="btn" href="#collection">
+        Explore Collection
+      </a>
+
+      <a class="btn btn-outline"
+         href="https://wa.me/212770190265"
+         target="_blank">
+        Order on WhatsApp
+      </a>
+
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section id="collection">
+
+    <div class="section-title">
+      <h2>Our Collection</h2>
+      <p>Choose your style. Wear your identity.</p>
+    </div>
+
+    <div class="products">
+
+      <!-- WATCH 1 -->
+      <div class="product">
+
+        <div class="watch-image">
+          <span>ADD WATCH IMAGE HERE</span>
+        </div>
+
+        <div class="product-info">
+          <h3>Rolex Datejust</h3>
+          <p>Elegant stainless steel design</p>
+
+          <div class="price">
+            210 MAD
+          </div>
+
+          <a class="order-btn"
+             href="https://wa.me/212770190265?text=Hello%20Ben's%20Collection,%20I%20want%20the%20Rolex%20Datejust"
+             target="_blank">
+            Order Now
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- WATCH 2 -->
+      <div class="product">
+
+        <div class="watch-image">
+          <span>ADD WATCH IMAGE HERE</span>
+        </div>
+
+        <div class="product-info">
+          <h3>Rolex Day-Date</h3>
+          <p>Luxury-inspired classic design</p>
+
+          <div class="price">
+            280 MAD
+          </div>
+
+          <a class="order-btn"
+             href="https://wa.me/212770190265?text=Hello%20Ben's%20Collection,%20I%20want%20the%20Rolex%20Day-Date"
+             target="_blank">
+            Order Now
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- WATCH 3 -->
+      <div class="product">
+
+        <div class="watch-image">
+          <span>ADD WATCH IMAGE HERE</span>
+        </div>
+
+        <div class="product-info">
+          <h3>Patek Philippe</h3>
+          <p>Premium elegant style</p>
+
+          <div class="price">
+            220 MAD
+          </div>
+
+          <a class="order-btn"
+             href="https://wa.me/212770190265?text=Hello%20Ben's%20Collection,%20I%20want%20the%20Patek%20Philippe"
+             target="_blank">
+            Order Now
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- WATCH 4 -->
+      <div class="product">
+
+        <div class="watch-image">
+          <span>ADD WATCH IMAGE HERE</span>
+        </div>
+
+        <div class="product-info">
+          <h3>Hublot Big Bang</h3>
+          <p>Bold black luxury design</p>
+
+          <div class="price">
+            210 MAD
+          </div>
+
+          <a class="order-btn"
+             href="https://wa.me/212770190265?text=Hello%20Ben's%20Collection,%20I%20want%20the%20Hublot%20Big%20Bang"
+             target="_blank">
+            Order Now
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <h2>About Ben's Collection</h2>
+    </div>
+
+    <div class="about-content">
+
+      <p>
+        Ben's Collection is more than watches.
+        It is an identity, a style and a heritage.
+        Discover carefully selected watches designed
+        for people who appreciate timeless elegance.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="social" id="contact">
+
+    <div class="section-title">
+      <h2>Follow & Contact Us</h2>
+      <p>For orders and information, contact us directly.</p>
+    </div>
+
+    <div class="social-buttons">
+
+      <a class="social-btn"
+         href="https://wa.me/212770190265"
+         target="_blank">
+        WhatsApp
+      </a>
+
+      <a class="social-btn"
+         href="https://www.instagram.com/bens_collection.17/"
+         target="_blank">
+        Instagram
+      </a>
+
+      <a class="social-btn"
+         href="https://www.facebook.com/"
+         target="_blank">
+        Facebook
+      </a>
+
+      <a class="social-btn"
+         href="https://www.tiktok.com/@bens_collection.17"
+         target="_blank">
+        TikTok
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 <strong>Ben's Collection</strong> — Timeless Elegance
+  </footer>
+
+</body>
+</html>
