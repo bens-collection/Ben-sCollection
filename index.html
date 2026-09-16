@@ -5,19 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ben's Collection — Timeless Elegance</title>
-<meta name="description" content="Ben's Collection — Timeless Elegance. Discover our Rolex, Patek Philippe and Hublot collections.">
+
+<meta name="description"
+content="Ben's Collection — Timeless Elegance. Discover Rolex, Patek Philippe and Hublot collections.">
 
 <style>
+
 :root{
   --gold:#d4af37;
-  --gold-light:#f3d77b;
+  --gold2:#f4dc86;
   --black:#050608;
-  --dark:#0b0f18;
-  --blue:#0a1830;
-  --card:#101622;
+  --dark:#0b1019;
+  --blue:#0b1b35;
+  --card:#101722;
   --white:#f5f5f5;
-  --muted:#a7adba;
-  --border:rgba(212,175,55,.22);
+  --muted:#9da6b5;
+  --border:rgba(212,175,55,.25);
 }
 
 *{
@@ -33,7 +36,7 @@ html{
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at top right,rgba(10,40,80,.35),transparent 35%),
+    radial-gradient(circle at top right,rgba(11,35,70,.5),transparent 35%),
     var(--black);
   color:var(--white);
   min-height:100vh;
@@ -49,13 +52,14 @@ a{
   color:inherit;
 }
 
-/* NAVBAR */
+
+/* ================= NAVBAR ================= */
 
 .navbar{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(5,6,8,.92);
+  background:rgba(5,6,8,.94);
   backdrop-filter:blur(15px);
   border-bottom:1px solid var(--border);
 }
@@ -63,11 +67,10 @@ a{
 .nav-inner{
   max-width:1200px;
   margin:auto;
-  padding:15px 20px;
+  padding:14px 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
 }
 
 .logo{
@@ -78,23 +81,21 @@ a{
 }
 
 .logo img{
-  width:42px;
-  height:42px;
+  width:44px;
+  height:44px;
   object-fit:contain;
   border-radius:50%;
 }
 
 .logo-text{
+  color:var(--gold);
   font-size:20px;
   font-weight:800;
-  color:var(--gold);
-  letter-spacing:.5px;
 }
 
 .nav-links{
   display:flex;
-  gap:22px;
-  align-items:center;
+  gap:25px;
 }
 
 .nav-links a{
@@ -107,15 +108,8 @@ a{
   color:var(--gold);
 }
 
-.menu-btn{
-  display:none;
-  background:none;
-  border:0;
-  color:white;
-  font-size:25px;
-}
 
-/* MAIN */
+/* ================= MAIN ================= */
 
 main{
   max-width:1200px;
@@ -131,7 +125,8 @@ main{
   display:block;
 }
 
-/* HERO */
+
+/* ================= HERO ================= */
 
 .hero{
   min-height:570px;
@@ -140,94 +135,86 @@ main{
   justify-content:center;
   text-align:center;
   position:relative;
-  overflow:hidden;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  background:rgba(212,175,55,.08);
-  filter:blur(70px);
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
   max-width:850px;
 }
 
 .badge{
   display:inline-block;
+  padding:8px 17px;
   border:1px solid var(--border);
-  color:var(--gold-light);
-  padding:8px 16px;
   border-radius:30px;
+  color:var(--gold2);
   font-size:12px;
-  letter-spacing:2px;
+  letter-spacing:3px;
   margin-bottom:22px;
 }
 
 .hero h1{
   font-size:clamp(45px,8vw,90px);
-  line-height:.95;
-  margin-bottom:18px;
   color:var(--gold);
-  font-weight:900;
+  line-height:.95;
+  margin-bottom:20px;
 }
 
 .hero h2{
-  font-size:clamp(20px,4vw,32px);
+  font-size:30px;
   margin-bottom:15px;
 }
 
 .hero p{
-  color:var(--muted);
   max-width:650px;
-  margin:0 auto 30px;
+  margin:auto;
+  color:var(--muted);
   line-height:1.7;
+  margin-bottom:30px;
 }
+
+
+/* ================= BUTTONS ================= */
 
 .btn{
   display:inline-flex;
-  align-items:center;
   justify-content:center;
-  gap:8px;
+  align-items:center;
   padding:13px 20px;
   border-radius:10px;
   border:1px solid var(--gold);
-  cursor:pointer;
   font-weight:700;
+  cursor:pointer;
   transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
 }
 
 .btn-gold{
   background:var(--gold);
-  color:#080808;
+  color:#050505;
 }
 
 .btn-gold:hover{
-  background:var(--gold-light);
-  transform:translateY(-2px);
+  background:var(--gold2);
 }
 
 .btn-dark{
   background:#111722;
   color:white;
-  border-color:#293243;
+  border-color:#2b3546;
 }
 
 .btn-dark:hover{
-  border-color:var(--gold);
   color:var(--gold);
+  border-color:var(--gold);
 }
 
 .btn-whatsapp{
   background:#159447;
-  border-color:#159447;
   color:white;
+  border-color:#159447;
 }
 
 .btn-whatsapp:hover{
@@ -236,17 +223,17 @@ main{
 
 .btn-card{
   background:#24395f;
-  border-color:#48679d;
   color:white;
+  border-color:#48679d;
 }
 
 .btn-bank{
   background:#161b27;
-  border-color:var(--gold);
   color:var(--gold);
 }
 
-/* SECTIONS */
+
+/* ================= SECTIONS ================= */
 
 .section{
   padding:70px 0;
@@ -261,11 +248,10 @@ main{
   color:var(--gold);
   font-size:12px;
   letter-spacing:3px;
-  text-transform:uppercase;
 }
 
 .section-title h2{
-  font-size:36px;
+  font-size:38px;
   margin-top:10px;
 }
 
@@ -274,23 +260,22 @@ main{
   margin-top:10px;
 }
 
-/* COLLECTIONS */
+
+/* ================= COLLECTIONS ================= */
 
 .collections{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:22px;
 }
 
 .collection-card{
-  min-height:300px;
-  position:relative;
-  overflow:hidden;
+  min-height:310px;
+  padding:30px;
   border:1px solid var(--border);
-  border-radius:18px;
+  border-radius:20px;
   background:
-    linear-gradient(145deg,rgba(15,25,43,.95),rgba(5,7,12,.98));
-  padding:28px;
+    linear-gradient(145deg,#101a2b,#070a10);
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
@@ -301,20 +286,18 @@ main{
 .collection-card:hover{
   transform:translateY(-7px);
   border-color:var(--gold);
-  box-shadow:0 15px 40px rgba(0,0,0,.4);
+  box-shadow:0 15px 45px rgba(0,0,0,.4);
 }
 
 .collection-icon{
-  position:absolute;
-  right:25px;
-  top:20px;
-  font-size:75px;
+  font-size:70px;
   opacity:.12;
+  margin-bottom:auto;
 }
 
 .collection-card h3{
   color:var(--gold);
-  font-size:26px;
+  font-size:27px;
   margin-bottom:10px;
 }
 
@@ -328,12 +311,13 @@ main{
   width:max-content;
 }
 
-/* PRODUCTS */
+
+/* ================= PRODUCTS ================= */
 
 .products{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:22px;
 }
 
 .product-card{
@@ -350,12 +334,11 @@ main{
 }
 
 .product-image{
-  height:270px;
+  height:280px;
   background:#080b10;
   display:flex;
-  align-items:center;
   justify-content:center;
-  position:relative;
+  align-items:center;
   overflow:hidden;
 }
 
@@ -365,10 +348,10 @@ main{
   object-fit:cover;
 }
 
-.image-placeholder{
+.placeholder{
+  color:#596273;
   text-align:center;
-  color:#5d6574;
-  font-size:14px;
+  font-size:13px;
   letter-spacing:2px;
 }
 
@@ -384,52 +367,50 @@ main{
 }
 
 .product-info h3{
-  margin:8px 0;
   font-size:21px;
+  margin:8px 0;
 }
 
 .price{
-  color:var(--gold-light);
+  color:var(--gold2);
   font-size:21px;
   font-weight:800;
-  margin:10px 0 18px;
+  margin:12px 0 18px;
 }
 
 .product-actions{
-  display:flex;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:10px;
 }
 
 .product-actions .btn{
-  flex:1;
-  padding:11px 8px;
   font-size:13px;
 }
 
-/* PRODUCT DETAIL */
+
+/* ================= PRODUCT DETAIL ================= */
 
 .back{
-  margin-top:35px;
-  margin-bottom:25px;
+  padding-top:30px;
 }
 
 .product-detail{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:start;
-  padding:40px 0;
+  gap:45px;
+  padding:35px 0 70px;
 }
 
 .detail-image{
   min-height:520px;
-  background:#090d14;
   border:1px solid var(--border);
   border-radius:20px;
   overflow:hidden;
+  background:#090d14;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
 }
 
 .detail-image img{
@@ -443,12 +424,8 @@ main{
   padding:20px 0;
 }
 
-.detail-info .brand{
-  font-size:13px;
-}
-
 .detail-info h1{
-  font-size:45px;
+  font-size:46px;
   margin:12px 0;
 }
 
@@ -460,24 +437,22 @@ main{
 
 .specs{
   list-style:none;
-  margin:25px 0;
   border-top:1px solid var(--border);
+  margin:25px 0;
 }
 
 .specs li{
   display:flex;
   justify-content:space-between;
-  gap:20px;
   padding:13px 0;
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.specs span:first-child{
+.specs li span:first-child{
   color:var(--muted);
 }
 
-.specs span:last-child{
-  color:#fff;
+.specs li span:last-child{
   text-align:right;
 }
 
@@ -487,11 +462,8 @@ main{
   gap:12px;
 }
 
-.detail-buttons .btn{
-  width:100%;
-}
 
-/* ABOUT */
+/* ================= ABOUT ================= */
 
 .about{
   max-width:850px;
@@ -505,31 +477,31 @@ main{
   margin-top:20px;
 }
 
-/* SOCIAL */
+
+/* ================= SOCIAL ================= */
 
 .socials{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:12px;
-  margin-top:25px;
 }
 
-/* MODAL */
+
+/* ================= MODAL ================= */
 
 .modal{
   display:none;
   position:fixed;
-  z-index:2000;
   inset:0;
-  background:rgba(0,0,0,.78);
-  backdrop-filter:blur(8px);
+  z-index:2000;
+  background:rgba(0,0,0,.8);
   align-items:center;
   justify-content:center;
   padding:20px;
 }
 
-.modal.active{
+.modal.show{
   display:flex;
 }
 
@@ -539,24 +511,24 @@ main{
   background:#0d131e;
   border:1px solid var(--gold);
   border-radius:20px;
-  padding:28px;
+  padding:30px;
   position:relative;
 }
 
 .close{
   position:absolute;
   right:18px;
-  top:12px;
-  background:none;
+  top:10px;
   border:0;
+  background:none;
   color:white;
-  font-size:28px;
+  font-size:30px;
   cursor:pointer;
 }
 
 .modal-box h2{
   color:var(--gold);
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .modal-product{
@@ -575,16 +547,16 @@ main{
 
 .notice{
   margin-top:20px;
-  padding:13px;
-  border-radius:10px;
-  background:rgba(212,175,55,.07);
+  padding:14px;
   border:1px solid rgba(212,175,55,.15);
-  color:#aaa;
+  border-radius:10px;
+  color:#999;
   font-size:12px;
   line-height:1.6;
 }
 
-/* FOOTER */
+
+/* ================= FOOTER ================= */
 
 footer{
   border-top:1px solid var(--border);
@@ -597,16 +569,13 @@ footer strong{
   color:var(--gold);
 }
 
-/* MOBILE */
+
+/* ================= MOBILE ================= */
 
 @media(max-width:850px){
 
   .nav-links{
     display:none;
-  }
-
-  .menu-btn{
-    display:block;
   }
 
   .collections,
@@ -623,7 +592,7 @@ footer strong{
   }
 
   .detail-info h1{
-    font-size:34px;
+    font-size:35px;
   }
 
   .detail-buttons{
@@ -633,6 +602,10 @@ footer strong{
   .hero{
     min-height:500px;
   }
+
+  .hero h2{
+    font-size:23px;
+  }
 }
 
 @media(min-width:851px) and (max-width:1050px){
@@ -641,43 +614,72 @@ footer strong{
   .products{
     grid-template-columns:repeat(2,1fr);
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- NAVBAR -->
+
+<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar">
+
   <div class="nav-inner">
 
     <div class="logo" onclick="goHome()">
-      <img src="images/logo.png"
-           alt="Ben's Collection Logo"
-           onerror="this.style.display='none'">
 
-      <div class="logo-text">Ben's Collection</div>
+      <img
+        src="images/logo.png"
+        alt="Ben's Collection"
+        onerror="this.style.display='none'"
+      >
+
+      <div class="logo-text">
+        Ben's Collection
+      </div>
+
     </div>
+
 
     <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#collections">Collections</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+
+      <a href="#home" onclick="goHome();return false;">
+        Home
+      </a>
+
+      <a href="#collections" onclick="goCollections();return false;">
+        Collections
+      </a>
+
+      <a href="#about" onclick="goAbout();return false;">
+        About
+      </a>
+
+      <a href="#contact" onclick="goContact();return false;">
+        Contact
+      </a>
+
     </div>
 
-    <button class="menu-btn" onclick="goCollections()">☰</button>
-
   </div>
+
 </nav>
+
 
 
 <main>
 
+
 <!-- ================= HOME ================= -->
 
-<section id="homePage" class="page active">
+<section
+  id="homePage"
+  class="page active"
+>
 
   <div class="hero">
 
@@ -687,16 +689,23 @@ footer strong{
         BEN'S COLLECTION
       </div>
 
-      <h1>Timeless Elegance</h1>
+      <h1>
+        Timeless Elegance
+      </h1>
 
-      <h2>Watches With Character</h2>
+      <h2>
+        Watches With Character
+      </h2>
 
       <p>
         Discover our carefully selected watch collections,
         combining elegant design, character and timeless style.
       </p>
 
-      <button class="btn btn-gold" onclick="goCollections()">
+      <button
+        class="btn btn-gold"
+        onclick="goCollections()"
+      >
         Explore Collections
       </button>
 
@@ -705,15 +714,23 @@ footer strong{
   </div>
 
 
+
   <!-- COLLECTIONS -->
 
-  <section class="section" id="collections">
+  <section
+    id="collections"
+    class="section"
+  >
 
     <div class="section-title">
 
-      <span>Discover</span>
+      <span>
+        DISCOVER
+      </span>
 
-      <h2>Our Collections</h2>
+      <h2>
+        Our Collections
+      </h2>
 
       <p>
         Choose a collection and discover its watches.
@@ -721,14 +738,24 @@ footer strong{
 
     </div>
 
+
     <div class="collections">
 
-      <div class="collection-card"
-           onclick="showCollection('rolex')">
 
-        <div class="collection-icon">⌚</div>
+      <!-- ROLEX -->
 
-        <h3>Rolex Collection</h3>
+      <div
+        class="collection-card"
+        onclick="showCollection('rolex')"
+      >
+
+        <div class="collection-icon">
+          ⌚
+        </div>
+
+        <h3>
+          Rolex Collection
+        </h3>
 
         <p>
           Discover our Rolex models including
@@ -742,12 +769,21 @@ footer strong{
       </div>
 
 
-      <div class="collection-card"
-           onclick="showCollection('patek')">
 
-        <div class="collection-icon">⌚</div>
+      <!-- PATEK -->
 
-        <h3>Patek Philippe</h3>
+      <div
+        class="collection-card"
+        onclick="showCollection('patek')"
+      >
+
+        <div class="collection-icon">
+          ⌚
+        </div>
+
+        <h3>
+          Patek Philippe
+        </h3>
 
         <p>
           Explore our Patek Philippe selection
@@ -761,15 +797,24 @@ footer strong{
       </div>
 
 
-      <div class="collection-card"
-           onclick="showCollection('hublot')">
 
-        <div class="collection-icon">⌚</div>
+      <!-- HUBLOT -->
 
-        <h3>Hublot Collection</h3>
+      <div
+        class="collection-card"
+        onclick="showCollection('hublot')"
+      >
+
+        <div class="collection-icon">
+          ⌚
+        </div>
+
+        <h3>
+          Hublot Collection
+        </h3>
 
         <p>
-          Discover the Hublot collection,
+          Discover our Hublot collection,
           including Big Bang models.
         </p>
 
@@ -784,32 +829,48 @@ footer strong{
   </section>
 
 
+
   <!-- FEATURED -->
 
   <section class="section">
 
     <div class="section-title">
 
-      <span>Featured</span>
+      <span>
+        FEATURED
+      </span>
 
-      <h2>Selected Watches</h2>
+      <h2>
+        Selected Watches
+      </h2>
 
     </div>
 
-    <div class="products" id="featuredProducts"></div>
+    <div
+      class="products"
+      id="featuredProducts"
+    ></div>
 
   </section>
 
 
+
   <!-- ABOUT -->
 
-  <section class="section" id="about">
+  <section
+    id="about"
+    class="section"
+  >
 
     <div class="section-title">
 
-      <span>Our Identity</span>
+      <span>
+        OUR IDENTITY
+      </span>
 
-      <h2>About Ben's Collection</h2>
+      <h2>
+        About Ben's Collection
+      </h2>
 
     </div>
 
@@ -822,9 +883,12 @@ footer strong{
       </p>
 
       <p>
-        <strong>Timeless Elegance.</strong>
-        A collection built around style, character
-        and identity.
+        <strong>
+          Timeless Elegance.
+        </strong>
+
+        A collection built around style,
+        character and identity.
       </p>
 
     </div>
@@ -832,15 +896,23 @@ footer strong{
   </section>
 
 
+
   <!-- CONTACT -->
 
-  <section class="section" id="contact">
+  <section
+    id="contact"
+    class="section"
+  >
 
     <div class="section-title">
 
-      <span>Stay Connected</span>
+      <span>
+        STAY CONNECTED
+      </span>
 
-      <h2>Contact Ben's Collection</h2>
+      <h2>
+        Contact Ben's Collection
+      </h2>
 
       <p>
         For orders and information, contact us directly.
@@ -848,33 +920,41 @@ footer strong{
 
     </div>
 
+
     <div class="socials">
 
       <a
         class="btn btn-dark"
         href="https://www.instagram.com/bens_collection.17/"
-        target="_blank">
+        target="_blank"
+      >
         Instagram
       </a>
+
 
       <a
         class="btn btn-dark"
         href="https://www.tiktok.com/@bens_collection.17"
-        target="_blank">
+        target="_blank"
+      >
         TikTok
       </a>
+
 
       <a
         class="btn btn-dark"
         href="https://www.facebook.com/share/1K7wEq5SY6/"
-        target="_blank">
+        target="_blank"
+      >
         Facebook
       </a>
+
 
       <a
         class="btn btn-whatsapp"
         href="https://wa.me/212770190265"
-        target="_blank">
+        target="_blank"
+      >
         WhatsApp
       </a>
 
@@ -885,48 +965,75 @@ footer strong{
 </section>
 
 
+
 <!-- ================= COLLECTION PAGE ================= -->
 
-<section id="collectionPage" class="page">
+<section
+  id="collectionPage"
+  class="page"
+>
 
   <div class="back">
-    <button class="btn btn-dark" onclick="goCollections()">
+
+    <button
+      class="btn btn-dark"
+      onclick="goCollections()"
+    >
       ← Back to Collections
     </button>
+
   </div>
+
 
   <section class="section">
 
     <div class="section-title">
 
-      <span id="collectionLabel">Collection</span>
+      <span id="collectionLabel">
+        COLLECTION
+      </span>
 
-      <h2 id="collectionTitle"></h2>
+      <h2 id="collectionTitle">
+      </h2>
 
-      <p id="collectionDescription"></p>
+      <p id="collectionDescription">
+      </p>
 
     </div>
 
-    <div class="products" id="collectionProducts"></div>
+
+    <div
+      class="products"
+      id="collectionProducts"
+    ></div>
 
   </section>
 
 </section>
 
 
+
 <!-- ================= PRODUCT PAGE ================= -->
 
-<section id="productPage" class="page">
+<section
+  id="productPage"
+  class="page"
+>
 
   <div class="back">
 
-    <button class="btn btn-dark" onclick="history.back()">
+    <button
+      class="btn btn-dark"
+      onclick="goBack()"
+    >
       ← Back
     </button>
 
   </div>
 
+
   <div class="product-detail">
+
 
     <div class="detail-image">
 
@@ -934,38 +1041,59 @@ footer strong{
         id="detailImage"
         src=""
         alt="Watch"
-        onerror="showDetailPlaceholder(this)">
+        onerror="detailImageError(this)"
+      >
 
     </div>
 
 
+
     <div class="detail-info">
 
-      <div class="brand" id="detailBrand"></div>
+      <div
+        class="brand"
+        id="detailBrand"
+      ></div>
 
-      <h1 id="detailName"></h1>
 
-      <div class="price" id="detailPrice"></div>
+      <h1
+        id="detailName"
+      ></h1>
+
+
+      <div
+        class="price"
+        id="detailPrice"
+      ></div>
+
 
       <p
         class="detail-description"
-        id="detailDescription">
-      </p>
+        id="detailDescription"
+      ></p>
 
-      <ul class="specs" id="detailSpecs"></ul>
+
+      <ul
+        class="specs"
+        id="detailSpecs"
+      ></ul>
+
 
       <div class="detail-buttons">
 
         <button
           class="btn btn-gold"
-          onclick="openOrder(currentProductId)">
+          onclick="openOrder(currentProduct)"
+        >
           Order Now
         </button>
+
 
         <a
           class="btn btn-whatsapp"
           id="detailWhatsApp"
-          target="_blank">
+          target="_blank"
+        >
           WhatsApp
         </a>
 
@@ -980,52 +1108,61 @@ footer strong{
 </main>
 
 
+
 <!-- ================= ORDER MODAL ================= -->
 
-<div class="modal" id="orderModal">
+<div
+  class="modal"
+  id="orderModal"
+>
 
   <div class="modal-box">
 
+
     <button
       class="close"
-      onclick="closeOrder()">
+      onclick="closeOrder()"
+    >
       ×
     </button>
 
-    <h2>Order Your Watch</h2>
+
+    <h2>
+      Order Your Watch
+    </h2>
+
 
     <p
       class="modal-product"
-      id="modalProduct">
-    </p>
+      id="modalProduct"
+    ></p>
+
 
     <div class="order-options">
 
-      <!-- CARD -->
 
       <button
         class="btn btn-card"
-        onclick="payByCard()">
+        onclick="payByCard()"
+      >
         💳 Pay by Bank Card
       </button>
 
 
-      <!-- WHATSAPP -->
-
       <a
         class="btn btn-whatsapp"
         id="modalWhatsApp"
-        target="_blank">
+        target="_blank"
+      >
         💬 Order via WhatsApp
       </a>
 
 
-      <!-- BANK TRANSFER -->
-
       <a
         class="btn btn-bank"
         id="modalBank"
-        target="_blank">
+        target="_blank"
+      >
         🏦 Bank Transfer
       </a>
 
@@ -1034,17 +1171,20 @@ footer strong{
 
     <div class="notice">
 
-      <strong>Secure payment:</strong><br>
+      <strong>
+        Secure payment:
+      </strong>
 
-      Card payment will use a secure external
-      payment provider. Do not enter or store
-      bank-card information directly on this website.
+      <br>
+
+      Card payment will use a secure
+      external payment provider.
 
       <br><br>
 
-      For bank transfer, contact us on WhatsApp
-      to receive the payment instructions after
-      confirming your order.
+      For bank transfer, contact us on
+      WhatsApp to receive the payment
+      instructions.
 
     </div>
 
@@ -1053,13 +1193,17 @@ footer strong{
 </div>
 
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
   <p>
-    © 2026 <strong>Ben's Collection</strong>.
-    All rights reserved.
+    © 2026
+    <strong>
+      Ben's Collection
+    </strong>
+    — All rights reserved.
   </p>
 
   <p style="margin-top:8px;">
@@ -1069,11 +1213,12 @@ footer strong{
 </footer>
 
 
+
 <script>
 
-/* =========================================
-   PRODUCTS
-========================================= */
+/* ==================================================
+   PRODUCT DATABASE
+================================================== */
 
 const products = [
 
@@ -1179,9 +1324,10 @@ const products = [
 ];
 
 
-/* =========================================
-   COLLECTIONS
-========================================= */
+
+/* ==================================================
+   COLLECTION DATABASE
+================================================== */
 
 const collections = {
 
@@ -1206,74 +1352,19 @@ const collections = {
 };
 
 
-/* =========================================
-   VARIABLES
-========================================= */
 
-let currentProductId = null;
+/* ==================================================
+   CURRENT PRODUCT
+================================================== */
+
+let currentProduct = null;
 
 
-/* =========================================
-   PAGE FUNCTIONS
-========================================= */
+/* ==================================================
+   PAGE DISPLAY
+================================================== */
 
-function hidePages(){
+function showPage(pageId){
 
   document
     .querySelectorAll(".page")
-    .forEach(page=>{
-      page.classList.remove("active");
-    });
-
-}
-
-
-function showPage(id){
-
-  hidePages();
-
-  document
-    .getElementById(id)
-    .classList.add("active");
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================================
-   HOME
-========================================= */
-
-function goHome(){
-
-  location.hash = "home";
-
-  showPage("homePage");
-
-}
-
-
-function goCollections(){
-
-  location.hash = "collections";
-
-  showPage("homePage");
-
-  setTimeout(()=>{
-
-    document
-      .getElementById("collections")
-      .scrollIntoView({
-        behavior:"smooth"
-      });
-
-  },100);
-
-}
-
-
-/* ==================================
