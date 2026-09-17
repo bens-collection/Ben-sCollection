@@ -1,8 +1,13 @@
+/* =========================================================
+   BEN'S COLLECTION — V2 SCRIPT
+   ========================================================= */
+
 const WHATSAPP_NUMBER = "212770190265";
 
-/* ==================================================
+
+/* =========================
    PRODUCTS
-================================================== */
+   ========================= */
 
 const products = [
   {
@@ -46,52 +51,87 @@ const products = [
 let selectedProduct = null;
 
 
-/* ==================================================
+/* =========================
    PAGE LOADER
-================================================== */
+   ========================= */
 
 window.addEventListener("load", function () {
 
-  const loader = document.getElementById("pageLoader");
-
   setTimeout(function () {
 
+    const loader =
+      document.getElementById("pageLoader");
+
     if (loader) {
-      loader.classList.add("hidden");
+      loader.classList.add("loaded");
     }
 
-    startHeroAnimations();
+    document.body.classList.remove("no-scroll");
 
-  }, 900);
+  }, 1600);
 
 });
 
 
-/* ==================================================
-   HERO ANIMATIONS
-================================================== */
+/* =========================
+   NAVBAR
+   ========================= */
 
-function startHeroAnimations() {
+window.addEventListener("scroll", function () {
 
-  const elements =
-    document.querySelectorAll(".hero .reveal");
+  const header =
+    document.getElementById("siteHeader");
 
-  elements.forEach(function (element, index) {
+  if (!header) return;
 
-    setTimeout(function () {
+  if (window.scrollY > 40) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 
-      element.classList.add("visible");
+});
 
-    }, index * 180);
+
+/* =========================
+   MOBILE MENU
+   ========================= */
+
+const menuToggle =
+  document.getElementById("menuToggle");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+
+if (menuToggle && mobileMenu) {
+
+  menuToggle.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("active");
+
+  });
+
+
+  const mobileLinks =
+    mobileMenu.querySelectorAll("a");
+
+  mobileLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+      mobileMenu.classList.remove("active");
+
+    });
 
   });
 
 }
 
 
-/* ==================================================
-   PRODUCT DISPLAY
-================================================== */
+/* =========================
+   DISPLAY PRODUCTS
+   ========================= */
 
 function displayProducts() {
 
@@ -103,75 +143,60 @@ function displayProducts() {
   container.innerHTML = "";
 
 
-  products.forEach(function (product, index) {
+  products.forEach(function (product) {
 
-    const article =
-      document.createElement("article");
+    container.innerHTML += `
 
-    article.className = "product reveal";
+      <article class="product">
 
-
-    article.innerHTML = `
-
-      <img
-        class="product-image"
-        src="${product.image}"
-        alt="${product.name}"
-        loading="lazy"
-      >
-
-      <div class="product-info">
-
-        <h3>
-          ${product.name}
-        </h3>
-
-        <p>
-          ${product.description}
-        </p>
-
-        <p class="price">
-          ${product.price.toFixed(2)} MAD
-        </p>
-
-        <button
-          class="product-btn"
-          type="button"
-          onclick="openProduct(${product.id})"
+        <img
+          class="product-image"
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
         >
-          DISCOVER
-        </button>
 
-      </div>
+        <div class="product-info">
+
+          <h3>
+            ${product.name}
+          </h3>
+
+          <p>
+            ${product.description}
+          </p>
+
+          <p class="price">
+            ${product.price.toFixed(2)} MAD
+          </p>
+
+          <button
+            class="product-btn"
+            onclick="openProduct(${product.id})"
+          >
+            VIEW DETAILS
+          </button>
+
+        </div>
+
+      </article>
 
     `;
-
-
-    container.appendChild(article);
-
-
-    setTimeout(function () {
-
-      article.classList.add("visible");
-
-    }, 250 + index * 120);
 
   });
 
 }
 
 
-/* ==================================================
-   PRODUCT MODAL
-================================================== */
+/* =========================
+   OPEN PRODUCT
+   ========================= */
 
 function openProduct(id) {
 
   selectedProduct =
     products.find(function (product) {
-
       return product.id === id;
-
     });
 
 
@@ -180,7 +205,6 @@ function openProduct(id) {
 
   const modal =
     document.getElementById("productModal");
-
 
   const image =
     document.getElementById("modalImage");
@@ -200,18 +224,15 @@ function openProduct(id) {
     image.alt = selectedProduct.name;
   }
 
-
   if (name) {
     name.textContent =
       selectedProduct.name;
   }
 
-
   if (description) {
     description.textContent =
       selectedProduct.description;
   }
-
 
   if (price) {
     price.textContent =
@@ -221,38 +242,39 @@ function openProduct(id) {
 
   if (modal) {
 
-    modal.classList.add("active");
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", "false");
 
-    document.body.classList.add("modal-open");
+    document.body.classList.add("no-scroll");
 
   }
 
 }
 
 
-/* ==================================================
+/* =========================
    CLOSE PRODUCT
-================================================== */
+   ========================= */
 
 function closeProduct() {
 
   const modal =
     document.getElementById("productModal");
 
-
-  if (modal) {
-    modal.classList.remove("active");
-  }
+  if (!modal) return;
 
 
-  document.body.classList.remove("modal-open");
+  modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
+
+  document.body.classList.remove("no-scroll");
 
 }
 
 
-/* ==================================================
-   CHECKOUT
-================================================== */
+/* =========================
+   OPEN CHECKOUT
+   ========================= */
 
 function openCheckout() {
 
@@ -274,82 +296,86 @@ function openCheckout() {
   const total =
     document.getElementById("totalPrice");
 
+  const modal =
+    document.getElementById("checkoutModal");
+
 
   if (image) {
-
     image.src =
       selectedProduct.image;
 
     image.alt =
       selectedProduct.name;
-
   }
 
 
   if (name) {
-
     name.textContent =
       selectedProduct.name;
-
   }
 
 
   if (price) {
-
     price.textContent =
-      selectedProduct.price.toFixed(2) + " MAD";
-
+      selectedProduct.price.toFixed(2) +
+      " MAD";
   }
 
 
   if (total) {
-
     total.textContent =
-      selectedProduct.price.toFixed(2) + " MAD";
-
+      selectedProduct.price.toFixed(2) +
+      " MAD";
   }
 
 
-  const checkoutModal =
-    document.getElementById("checkoutModal");
+  if (modal) {
 
+    modal.style.display = "flex";
 
-  if (checkoutModal) {
+    modal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
 
-    checkoutModal.classList.add("active");
-
-    document.body.classList.add("modal-open");
+    document.body.classList.add(
+      "no-scroll"
+    );
 
   }
 
 }
 
 
-/* ==================================================
+/* =========================
    CLOSE CHECKOUT
-================================================== */
+   ========================= */
 
 function closeCheckout() {
 
   const modal =
     document.getElementById("checkoutModal");
 
-
-  if (modal) {
-
-    modal.classList.remove("active");
-
-  }
+  if (!modal) return;
 
 
-  document.body.classList.remove("modal-open");
+  modal.style.display = "none";
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "no-scroll"
+  );
 
 }
 
 
-/* ==================================================
+/* =========================
    ORDER FORM
-================================================== */
+   ========================= */
 
 const orderForm =
   document.getElementById("orderForm");
@@ -365,13 +391,7 @@ if (orderForm) {
 
 
       if (!selectedProduct) {
-
-        alert(
-          "Veuillez sélectionner une montre."
-        );
-
         return;
-
       }
 
 
@@ -414,44 +434,120 @@ if (orderForm) {
 
 `🕰️ *BEN'S COLLECTION — NOUVELLE COMMANDE*
 
-━━━━━━━━━━━━━━━━━━
-
-⌚ *PRODUIT*
+⌚ *Produit :*
 ${selectedProduct.name}
 
-💰 *PRIX*
+💰 *Prix :*
 ${selectedProduct.price.toFixed(2)} MAD
 
-━━━━━━━━━━━━━━━━━━
-
-👤 *NOM COMPLET*
+👤 *Nom :*
 ${name}
 
-📞 *TÉLÉPHONE*
+📞 *Téléphone :*
 ${phone}
 
-📍 *VILLE*
+📍 *Ville :*
 ${city}
 
-🏠 *ADRESSE*
+🏠 *Adresse :*
 ${address}
 
-📝 *NOTE*
+📝 *Note :*
 ${note || "Aucune"}
 
-━━━━━━━━━━━━━━━━━━
-
-💵 *PAIEMENT*
-Paiement à la livraison
-
-💰 *TOTAL*
-${selectedProduct.price.toFixed(2)} MAD
+💵 *Paiement :*
+À LA LIVRAISON
 
 ━━━━━━━━━━━━━━━━━━
-
+Merci pour votre commande.
 BEN'S COLLECTION
-TIMELESS ELEGANCE`;
+TIMELESS ELEGANCE
+━━━━━━━━━━━━━━━━━━`;
 
 
       const whatsappURL =
         "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================
+   CLOSE MODALS
+   ========================= */
+
+window.addEventListener(
+  "click",
+  function (event) {
+
+    const productModal =
+      document.getElementById("productModal");
+
+    const checkoutModal =
+      document.getElementById("checkoutModal");
+
+
+    if (
+      productModal &&
+      event.target === productModal
+    ) {
+
+      closeProduct();
+
+    }
+
+
+    if (
+      checkoutModal &&
+      event.target === checkoutModal
+    ) {
+
+      closeCheckout();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   ESC KEY
+   ========================= */
+
+document.addEventListener(
+  "keydown",
+  function (event) {
+
+    if (event.key === "Escape") {
+
+      closeProduct();
+      closeCheckout();
+
+      if (mobileMenu) {
+        mobileMenu.classList.remove(
+          "active"
+        );
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================
+   START
+   ========================= */
+
+displayProducts();
