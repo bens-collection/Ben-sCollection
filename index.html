@@ -3,50 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070a10">
 
   <title>Ben's Collection — Timeless Elegance</title>
 
   <meta
     name="description"
-    content="Ben's Collection — Timeless Elegance. Discover our curated collection of watches."
+    content="Ben's Collection — Timeless Elegance. Discover our curated watch collection."
   >
 
+  <link rel="icon" type="image/jpeg" href="logo-only.png.jpg">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="no-scroll">
 
   <!-- PAGE LOADER -->
   <div class="page-loader" id="pageLoader">
     <div class="loader-content">
+
+      <img
+        src="logo-only.png.jpg"
+        alt="Ben's Collection"
+        class="loader-logo"
+      >
+
       <div class="loader-brand">BEN'S COLLECTION</div>
+
       <div class="loader-line">
         <span></span>
       </div>
+
       <div class="loader-year">EST. 2026</div>
+
     </div>
   </div>
 
 
-  <!-- NAVBAR -->
+  <!-- HEADER -->
   <header class="site-header" id="siteHeader">
 
-    <nav class="navbar">
+    <div class="nav-container">
 
-      <a href="#home" class="brand">
-        <span class="brand-main">BEN'S</span>
-        <span class="brand-sub">COLLECTION</span>
+      <a href="#home" class="brand-logo">
+        <img
+          src="logo-only.png.jpg"
+          alt="Ben's Collection"
+        >
       </a>
 
-      <div class="nav-links">
-
+      <nav class="desktop-nav">
         <a href="#home">HOME</a>
         <a href="#collection">COLLECTION</a>
         <a href="#story">OUR STORY</a>
         <a href="#socials">SOCIAL</a>
         <a href="#contact">CONTACT</a>
-
-      </div>
+      </nav>
 
       <a href="#collection" class="nav-cta">
         EXPLORE
@@ -59,49 +71,55 @@
       >
         <span></span>
         <span></span>
+        <span></span>
       </button>
 
-    </nav>
-
+    </div>
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-
       <a href="#home">HOME</a>
       <a href="#collection">COLLECTION</a>
       <a href="#story">OUR STORY</a>
       <a href="#socials">SOCIAL</a>
       <a href="#contact">CONTACT</a>
-
     </div>
 
   </header>
 
 
-  <!-- HERO -->
   <main>
 
+    <!-- HERO -->
     <section class="hero" id="home">
 
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
 
-        <div class="hero-eyebrow">
-          BEN'S COLLECTION
+        <div class="hero-logo-wrap">
+          <img
+            src="logo-full-black.png.jpg"
+            alt="Ben's Collection"
+            class="hero-logo"
+          >
         </div>
 
+        <p class="hero-eyebrow">
+          BEN'S COLLECTION
+        </p>
+
         <h1>
-          TIMELESS
+          TIMELESS<br>
           <span>ELEGANCE</span>
         </h1>
 
-        <p>
+        <p class="hero-text">
           A new expression of watchmaking.
           Designed for those who define their own time.
         </p>
 
-        <div class="hero-buttons">
+        <div class="hero-actions">
 
           <a href="#collection" class="btn btn-gold">
             EXPLORE COLLECTION
@@ -115,40 +133,41 @@
 
       </div>
 
-
       <div class="hero-bottom">
+        <span>EST. 2026</span>
 
         <div class="scroll-indicator">
           <span></span>
-          <small>SCROLL TO EXPLORE</small>
         </div>
 
-        <div class="hero-est">
-          EST. 2026
-        </div>
-
+        <span>SCROLL TO EXPLORE</span>
       </div>
 
     </section>
 
 
     <!-- INTRO -->
-    <section class="intro section">
+    <section class="intro-section">
 
-      <div class="section-label">
-        01 — THE EXPERIENCE
+      <div class="section-number">
+        01 / 04
       </div>
 
       <div class="intro-content">
 
+        <p class="section-label">
+          THE BEN'S PHILOSOPHY
+        </p>
+
         <h2>
-          MORE THAN
+          MORE THAN<br>
           <span>A WATCH.</span>
         </h2>
 
         <p>
-          A watch is more than an instrument that tells time.
-          It is a statement of identity, character and heritage.
+          A watch is more than an accessory.
+          It represents identity, character and the moments
+          that define us.
         </p>
 
       </div>
@@ -157,56 +176,66 @@
 
 
     <!-- COLLECTION -->
-    <section class="collection section" id="collection">
+    <section class="collection-section" id="collection">
 
       <div class="section-heading">
 
         <div>
-          <div class="section-label">
-            02 — THE COLLECTION
-          </div>
+          <p class="section-label">
+            02 / COLLECTION
+          </p>
 
           <h2>
-            TIMEPIECES
-            <span>FOR YOU.</span>
+            THE COLLECTION
           </h2>
         </div>
 
-        <p>
-          Discover selected pieces designed to bring
-          timeless elegance to every moment.
+        <p class="section-description">
+          Carefully selected pieces created for those
+          who appreciate timeless design.
         </p>
 
       </div>
 
 
-      <!-- PRODUCTS GENERATED BY SCRIPT.JS -->
-      <div class="products-grid" id="products"></div>
+      <div class="collection-brand">
+
+        <img
+          src="logo-blue.png.jpg"
+          alt="Ben's Collection"
+        >
+
+      </div>
+
+
+      <div class="products-grid" id="products">
+        <!-- Products are loaded by script.js -->
+      </div>
 
     </section>
 
 
     <!-- FEATURED -->
-    <section class="featured section">
+    <section class="featured-section">
 
       <div class="featured-content">
 
-        <div class="section-label">
-          BEN'S COLLECTION
-        </div>
+        <p class="section-label">
+          THE BEN'S EXPERIENCE
+        </p>
 
         <h2>
-          WEAR
-          <span>YOUR MOMENT.</span>
+          WEAR YOUR<br>
+          <span>MOMENT.</span>
         </h2>
 
         <p>
+          Every detail matters.
           Every second becomes part of your story.
-          Choose the piece that represents you.
         </p>
 
         <a href="#collection" class="btn btn-gold">
-          VIEW COLLECTION
+          SHOP THE COLLECTION
         </a>
 
       </div>
@@ -214,39 +243,40 @@
     </section>
 
 
-    <!-- OUR STORY -->
-    <section class="story section" id="story">
+    <!-- STORY -->
+    <section class="story-section" id="story">
 
-      <div class="story-grid">
+      <div class="story-logo">
 
-        <div class="story-number">
-          03
-        </div>
+        <img
+          src="logo-blue.png.jpg"
+          alt="Ben's Collection"
+        >
 
-        <div class="story-content">
+      </div>
 
-          <div class="section-label">
-            OUR STORY
-          </div>
+      <div class="story-content">
 
-          <h2>
-            IDENTITY
-            <span>& HERITAGE.</span>
-          </h2>
+        <p class="section-label">
+          03 / OUR STORY
+        </p>
 
-          <p>
-            Ben's Collection is more than a name.
-            It represents identity, character and a passion
-            for timeless design.
-          </p>
+        <h2>
+          IDENTITY &<br>
+          <span>HERITAGE.</span>
+        </h2>
 
-          <p>
-            Our vision is simple:
-            create a modern watch experience while preserving
-            the elegance and emotion behind every timepiece.
-          </p>
+        <p>
+          Ben's Collection is more than a collection of watches.
+          It is an identity, a vision and a heritage built around
+          timeless elegance.
+        </p>
 
-        </div>
+        <p>
+          Our philosophy is simple:
+          create a distinctive experience where design,
+          character and elegance meet.
+        </p>
 
       </div>
 
@@ -254,27 +284,20 @@
 
 
     <!-- SOCIAL -->
-    <section class="socials section" id="socials">
+    <section class="social-section" id="socials">
 
-      <div class="section-heading social-heading">
+      <div class="section-heading">
 
         <div>
-
-          <div class="section-label">
-            04 — FOLLOW BEN'S
-          </div>
+          <p class="section-label">
+            04 / CONNECT
+          </p>
 
           <h2>
-            STAY
-            <span>CONNECTED.</span>
+            FOLLOW<br>
+            <span>BEN'S.</span>
           </h2>
-
         </div>
-
-        <p>
-          Follow Ben's Collection and discover new pieces,
-          launches and exclusive content.
-        </p>
 
       </div>
 
@@ -287,18 +310,16 @@
           rel="noopener noreferrer"
           class="social-card"
         >
-
           <div class="social-icon">
             IG
           </div>
 
           <div>
-            <h3>Instagram</h3>
-            <p>@bens_collection.17</p>
+            <strong>INSTAGRAM</strong>
+            <span>@bens_collection.17</span>
           </div>
 
           <span class="social-arrow">↗</span>
-
         </a>
 
 
@@ -308,18 +329,16 @@
           rel="noopener noreferrer"
           class="social-card"
         >
-
           <div class="social-icon">
             FB
           </div>
 
           <div>
-            <h3>Facebook</h3>
-            <p>Ben's Collection</p>
+            <strong>FACEBOOK</strong>
+            <span>Ben's Collection</span>
           </div>
 
           <span class="social-arrow">↗</span>
-
         </a>
 
 
@@ -329,18 +348,16 @@
           rel="noopener noreferrer"
           class="social-card"
         >
-
           <div class="social-icon">
-            TT
+            TK
           </div>
 
           <div>
-            <h3>TikTok</h3>
-            <p>@bens_collection.17</p>
+            <strong>TIKTOK</strong>
+            <span>@bens_collection.17</span>
           </div>
 
           <span class="social-arrow">↗</span>
-
         </a>
 
       </div>
@@ -348,41 +365,39 @@
     </section>
 
 
-    <!-- CONTACT CTA -->
-    <section class="contact section" id="contact">
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
 
-      <div class="contact-content">
+      <div class="contact-inner">
 
-        <div class="section-label">
-          05 — CONTACT
-        </div>
+        <img
+          src="logo-full-white.png.jpg"
+          alt="Ben's Collection"
+          class="contact-logo"
+        >
+
+        <p class="section-label">
+          READY TO DEFINE YOUR TIME?
+        </p>
 
         <h2>
-          YOUR TIME.
-          <span>YOUR STYLE.</span>
+          YOUR NEXT<br>
+          <span>TIMELESS PIECE.</span>
         </h2>
 
         <p>
-          Ready to discover your next timepiece?
-          Explore the collection or contact us directly.
+          Discover the collection and contact us directly
+          for your order.
         </p>
 
-        <div class="contact-buttons">
-
-          <a href="#collection" class="btn btn-gold">
-            SHOP COLLECTION
-          </a>
-
-          <a
-            href="https://wa.me/212770190265"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-outline"
-          >
-            WHATSAPP
-          </a>
-
-        </div>
+        <a
+          href="https://wa.me/212770190265"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-gold"
+        >
+          ORDER VIA WHATSAPP
+        </a>
 
       </div>
 
@@ -392,80 +407,108 @@
 
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="site-footer">
 
-    <div class="footer-brand">
+    <div class="footer-top">
 
-      <div class="brand-main">
-        BEN'S
+      <div class="footer-brand">
+
+        <img
+          src="logo-full-white.png.jpg"
+          alt="Ben's Collection"
+        >
+
+        <p>
+          TIMELESS ELEGANCE
+        </p>
+
       </div>
 
-      <div class="brand-sub">
-        COLLECTION
+
+      <div class="footer-links">
+
+        <div>
+          <h4>EXPLORE</h4>
+
+          <a href="#home">Home</a>
+          <a href="#collection">Collection</a>
+          <a href="#story">Our Story</a>
+        </div>
+
+
+        <div>
+          <h4>CONNECT</h4>
+
+          <a
+            href="https://www.instagram.com/bens_collection.17"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="https://www.facebook.com/share/1K7wEq5SY6/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@bens_collection.17"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TikTok
+          </a>
+        </div>
+
+
+        <div>
+          <h4>CONTACT</h4>
+
+          <a
+            href="https://wa.me/212770190265"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
+
       </div>
-
-    </div>
-
-
-    <div class="footer-slogan">
-      TIMELESS ELEGANCE
-    </div>
-
-
-    <div class="footer-socials">
-
-      <a
-        href="https://www.instagram.com/bens_collection.17"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram
-      </a>
-
-      <a
-        href="https://www.facebook.com/share/1K7wEq5SY6/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Facebook
-      </a>
-
-      <a
-        href="https://www.tiktok.com/@bens_collection.17"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TikTok
-      </a>
-
-      <a
-        href="https://wa.me/212770190265"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WhatsApp
-      </a>
 
     </div>
 
 
     <div class="footer-bottom">
-      © 2026 Ben's Collection. All rights reserved.
+
+      <span>
+        © 2026 BEN'S COLLECTION
+      </span>
+
+      <span>
+        TIMELESS ELEGANCE
+      </span>
+
+      <span>
+        ALL RIGHTS RESERVED
+      </span>
+
     </div>
 
   </footer>
 
 
-  <!-- PRODUCT MODAL -->
+  <!-- PRODUCT DETAILS MODAL -->
   <div
     class="modal"
     id="productModal"
     aria-hidden="true"
   >
 
-    <div class="modal-overlay"></div>
-
-    <div class="modal-box product-modal-box">
+    <div class="modal-content product-modal-content">
 
       <button
         class="modal-close"
@@ -475,49 +518,37 @@
         ×
       </button>
 
+      <div class="modal-product-image">
 
-      <div class="modal-product">
+        <img
+          id="modalImage"
+          src=""
+          alt=""
+        >
 
-        <div class="modal-image-wrap">
+      </div>
 
-          <img
-            id="modalImage"
-            src=""
-            alt="Product"
-          >
+      <div class="modal-product-info">
 
-        </div>
+        <p class="section-label">
+          BEN'S COLLECTION
+        </p>
 
+        <h2 id="modalName"></h2>
 
-        <div class="modal-info">
+        <p id="modalDescription"></p>
 
-          <div class="section-label">
-            BEN'S COLLECTION
-          </div>
+        <div
+          class="modal-price"
+          id="modalPrice"
+        ></div>
 
-          <h2 id="modalName">
-            Product
-          </h2>
-
-          <p id="modalDescription">
-            Product description.
-          </p>
-
-          <div
-            class="modal-price"
-            id="modalPrice"
-          >
-            0.00 MAD
-          </div>
-
-          <button
-            class="btn btn-gold modal-order-btn"
-            onclick="openCheckout()"
-          >
-            COMMANDER
-          </button>
-
-        </div>
+        <button
+          class="btn btn-gold modal-order-btn"
+          onclick="openCheckout()"
+        >
+          COMMANDER
+        </button>
 
       </div>
 
@@ -533,9 +564,7 @@
     aria-hidden="true"
   >
 
-    <div class="modal-overlay"></div>
-
-    <div class="modal-box checkout-modal-box">
+    <div class="modal-content checkout-modal-content">
 
       <button
         class="modal-close"
@@ -548,13 +577,13 @@
 
       <div class="checkout-header">
 
-        <div class="section-label">
+        <p class="section-label">
           BEN'S COLLECTION
-        </div>
+        </p>
 
         <h2>
-          FINALIZE
-          <span>YOUR ORDER.</span>
+          FINALIZE YOUR<br>
+          <span>ORDER.</span>
         </h2>
 
       </div>
@@ -565,124 +594,110 @@
         <img
           id="checkoutImage"
           src=""
-          alt="Product"
+          alt=""
         >
 
         <div>
-
-          <h3 id="checkoutName">
-            Product
-          </h3>
-
-          <div
-            id="checkoutPrice"
-            class="checkout-price"
-          >
-            0.00 MAD
-          </div>
-
+          <h3 id="checkoutName"></h3>
+          <p id="checkoutPrice"></p>
         </div>
 
       </div>
 
 
-      <form id="orderForm" class="checkout-form">
+      <form id="orderForm">
 
-        <div class="form-grid">
+        <div class="form-group">
 
-          <div class="form-group">
+          <label for="customerName">
+            FULL NAME
+          </label>
 
-            <label for="customerName">
-              FULL NAME
-            </label>
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Your full name"
+            required
+          >
 
-            <input
-              type="text"
-              id="customerName"
-              placeholder="Your full name"
-              required
-            >
-
-          </div>
+        </div>
 
 
-          <div class="form-group">
+        <div class="form-group">
 
-            <label for="customerPhone">
-              PHONE
-            </label>
+          <label for="customerPhone">
+            PHONE
+          </label>
 
-            <input
-              type="tel"
-              id="customerPhone"
-              placeholder="06XXXXXXXX"
-              required
-            >
+          <input
+            type="tel"
+            id="customerPhone"
+            placeholder="06XXXXXXXX"
+            required
+          >
 
-          </div>
-
-
-          <div class="form-group">
-
-            <label for="customerCity">
-              CITY
-            </label>
-
-            <input
-              type="text"
-              id="customerCity"
-              placeholder="Your city"
-              required
-            >
-
-          </div>
+        </div>
 
 
-          <div class="form-group form-full">
+        <div class="form-group">
 
-            <label for="customerAddress">
-              ADDRESS
-            </label>
+          <label for="customerCity">
+            CITY
+          </label>
 
-            <input
-              type="text"
-              id="customerAddress"
-              placeholder="Delivery address"
-              required
-            >
+          <input
+            type="text"
+            id="customerCity"
+            placeholder="Your city"
+            required
+          >
 
-          </div>
+        </div>
 
 
-          <div class="form-group form-full">
+        <div class="form-group">
 
-            <label for="customerNote">
-              NOTE — OPTIONAL
-            </label>
+          <label for="customerAddress">
+            ADDRESS
+          </label>
 
-            <textarea
-              id="customerNote"
-              rows="3"
-              placeholder="Additional information..."
-            ></textarea>
+          <textarea
+            id="customerAddress"
+            rows="3"
+            placeholder="Your delivery address"
+            required
+          ></textarea>
 
-          </div>
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="customerNote">
+            NOTE — OPTIONAL
+          </label>
+
+          <textarea
+            id="customerNote"
+            rows="2"
+            placeholder="Additional note"
+          ></textarea>
 
         </div>
 
 
         <div class="payment-method">
 
-          <div class="payment-title">
+          <p class="payment-title">
             PAYMENT METHOD
-          </div>
+          </p>
 
           <label class="payment-option">
 
             <input
               type="radio"
               name="payment"
-              value="cod"
+              value="cash"
               checked
             >
 
@@ -712,7 +727,7 @@
           type="submit"
           class="btn btn-gold checkout-submit"
         >
-          CONFIRMER LA COMMANDE
+          CONFIRM ORDER VIA WHATSAPP
         </button>
 
       </form>
