@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -9,146 +9,130 @@
 
   <meta
     name="description"
-    content="Ben's Collection — Timeless Elegance. Discover our watch collection."
+    content="Ben's Collection — Timeless Elegance. Discover a new generation of luxury watches."
   >
 
+  <meta name="theme-color" content="#05070d">
+
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* =========================
-       SOCIAL MEDIA
-    ========================= */
-
-    .social-section {
-      padding: 80px 20px;
-      text-align: center;
-      background: #080808;
-    }
-
-    .social-section h2 {
-      color: #d4af37;
-      font-size: 32px;
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-    }
-
-    .social-section p {
-      color: #aaa;
-      margin-bottom: 35px;
-    }
-
-    .social-container {
-      max-width: 900px;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .social-link {
-      width: 200px;
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-
-      background: #111;
-      border: 1px solid #d4af37;
-      border-radius: 10px;
-
-      color: #fff;
-      text-decoration: none;
-
-      font-size: 17px;
-      font-weight: bold;
-      letter-spacing: 1px;
-
-      transition: all 0.3s ease;
-    }
-
-    .social-link:hover {
-      background: #d4af37;
-      color: #000;
-      transform: translateY(-5px);
-    }
-
-    .social-icon {
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .social-name {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .social-name small {
-      font-size: 11px;
-      opacity: 0.7;
-      margin-top: 3px;
-    }
-
-    @media (max-width: 600px) {
-      .social-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .social-link {
-        width: 90%;
-        max-width: 320px;
-      }
-    }
-  </style>
-
 </head>
 
 
 <body>
 
 
-  <!-- =========================
-       NAVBAR
-  ========================= -->
+  <!-- ==================================================
+       PAGE LOADER
+  ================================================== -->
 
-  <header class="navbar">
+  <div id="pageLoader" class="page-loader">
+
+    <div class="loader-logo">
+      BEN'S
+    </div>
+
+    <div class="loader-line"></div>
+
+    <span>
+      COLLECTION
+    </span>
+
+  </div>
+
+
+
+  <!-- ==================================================
+       NAVIGATION
+  ================================================== -->
+
+  <header id="navbar" class="navbar">
 
     <div class="nav-container">
 
-      <a href="#home" class="logo">
-        BEN'S COLLECTION
+
+      <a href="#home" class="brand">
+
+        <span class="brand-main">
+          BEN'S
+        </span>
+
+        <span class="brand-sub">
+          COLLECTION
+        </span>
+
       </a>
+
 
       <nav class="nav-menu">
 
-        <a href="#home">
+        <a href="#home" class="nav-link active">
           HOME
         </a>
 
-        <a href="#collection">
+        <a href="#collection" class="nav-link">
           COLLECTION
         </a>
 
-        <a href="#about">
-          ABOUT
+        <a href="#story" class="nav-link">
+          OUR STORY
         </a>
 
-        <a href="#socials">
-          SOCIAL MEDIA
+        <a href="#socials" class="nav-link">
+          SOCIAL
         </a>
 
-        <a href="#contact">
+        <a href="#contact" class="nav-link">
           CONTACT
         </a>
 
-        <a href="#collection" class="nav-shop">
-          SHOP NOW
-        </a>
-
       </nav>
+
+
+      <a href="#collection" class="nav-cta">
+        EXPLORE
+      </a>
+
+
+      <button
+        id="mobileMenuButton"
+        class="mobile-menu-button"
+        type="button"
+        aria-label="Open menu"
+      >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+
+    </div>
+
+
+    <!-- MOBILE MENU -->
+
+    <div id="mobileMenu" class="mobile-menu">
+
+      <a href="#home">
+        HOME
+      </a>
+
+      <a href="#collection">
+        COLLECTION
+      </a>
+
+      <a href="#story">
+        OUR STORY
+      </a>
+
+      <a href="#socials">
+        SOCIAL
+      </a>
+
+      <a href="#contact">
+        CONTACT
+      </a>
 
     </div>
 
@@ -156,416 +140,898 @@
 
 
 
-  <!-- =========================
-       HOME
-  ========================= -->
+  <!-- ==================================================
+       HERO
+  ================================================== -->
 
-  <section id="home" class="hero">
+  <main>
 
-    <div class="hero-content">
 
-      <p class="hero-small">
-        BEN'S COLLECTION
-      </p>
+    <section id="home" class="hero">
 
-      <h1>
-        TIMELESS ELEGANCE
-      </h1>
 
-      <p class="hero-text">
-        Discover our collection of elegant and timeless watches.
-      </p>
+      <div class="hero-background">
 
-      <a
-        href="#collection"
-        class="main-btn"
-      >
-        VIEW COLLECTION
-      </a>
+        <div class="hero-glow"></div>
 
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       COLLECTION
-  ========================= -->
-
-  <section
-    id="collection"
-    class="collection-section"
-  >
-
-    <div class="section-header">
-
-      <p class="section-small">
-        OUR SELECTION
-      </p>
-
-      <h2>
-        THE COLLECTION
-      </h2>
-
-      <p>
-        Discover our selected watches.
-      </p>
-
-    </div>
-
-
-    <div
-      id="products"
-      class="products"
-    >
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       ABOUT
-  ========================= -->
-
-  <section
-    id="about"
-    class="about-section"
-  >
-
-    <div class="about-content">
-
-      <p class="section-small">
-        ABOUT US
-      </p>
-
-      <h2>
-        BEN'S COLLECTION
-      </h2>
-
-      <p>
-        Ben's Collection is more than a watch collection.
-        It represents style, identity and timeless elegance.
-      </p>
-
-      <p>
-        Discover watches selected for people who appreciate
-        elegance, style and personality.
-      </p>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       SOCIAL MEDIA
-  ========================= -->
-
-  <section
-    id="socials"
-    class="social-section"
-  >
-
-    <h2>
-      FOLLOW BEN'S COLLECTION
-    </h2>
-
-    <p>
-      Choose your favorite social media.
-    </p>
-
-
-    <div class="social-container">
-
-
-      <!-- INSTAGRAM -->
-
-      <a
-        class="social-link"
-        href="https://www.instagram.com/bens_collection.17"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Ben's Collection Instagram"
-      >
-
-        <span class="social-icon">
-          ◎
-        </span>
-
-        <span class="social-name">
-
-          Instagram
-
-          <small>
-            @bens_collection.17
-          </small>
-
-        </span>
-
-      </a>
-
-
-
-      <!-- FACEBOOK -->
-
-      <a
-        class="social-link"
-        href="https://www.facebook.com/share/1K7wEq5SY6/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Ben's Collection Facebook"
-      >
-
-        <span class="social-icon">
-          f
-        </span>
-
-        <span class="social-name">
-
-          Facebook
-
-          <small>
-            Ben's Collection
-          </small>
-
-        </span>
-
-      </a>
-
-
-
-      <!-- TIKTOK -->
-
-      <a
-        class="social-link"
-        href="https://www.tiktok.com/@bens_collection.17"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Ben's Collection TikTok"
-      >
-
-        <span class="social-icon">
-          ♪
-        </span>
-
-        <span class="social-name">
-
-          TikTok
-
-          <small>
-            @bens_collection.17
-          </small>
-
-        </span>
-
-      </a>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       CONTACT
-  ========================= -->
-
-  <section
-    id="contact"
-    class="contact-section"
-  >
-
-    <div class="section-header">
-
-      <p class="section-small">
-        CONTACT
-      </p>
-
-      <h2>
-        CONTACT US
-      </h2>
-
-      <p>
-        For orders and information, contact Ben's Collection.
-      </p>
-
-      <br>
-
-      <a
-        href="https://wa.me/212770190265"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="main-btn"
-      >
-        CONTACT US ON WHATSAPP
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer class="footer">
-
-    <div class="footer-content">
-
-      <h3>
-        BEN'S COLLECTION
-      </h3>
-
-      <p>
-        TIMELESS ELEGANCE
-      </p>
-
-
-      <div
-        style="
-          margin-top:20px;
-          display:flex;
-          justify-content:center;
-          gap:20px;
-          flex-wrap:wrap;
-        "
-      >
-
-        <a
-          href="https://www.instagram.com/bens_collection.17"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color:#d4af37;text-decoration:none;"
-        >
-          Instagram
-        </a>
-
-        <a
-          href="https://www.facebook.com/share/1K7wEq5SY6/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color:#d4af37;text-decoration:none;"
-        >
-          Facebook
-        </a>
-
-        <a
-          href="https://www.tiktok.com/@bens_collection.17"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color:#d4af37;text-decoration:none;"
-        >
-          TikTok
-        </a>
-
-        <a
-          href="https://wa.me/212770190265"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color:#d4af37;text-decoration:none;"
-        >
-          WhatsApp
-        </a>
+        <div class="hero-grid"></div>
 
       </div>
 
 
-      <p class="copyright">
-        © 2026 Ben's Collection. All Rights Reserved.
-      </p>
+      <div class="hero-content">
+
+
+        <div class="hero-eyebrow reveal">
+
+          <span class="eyebrow-line"></span>
+
+          <span>
+            BEN'S COLLECTION
+          </span>
+
+          <span class="eyebrow-line"></span>
+
+        </div>
+
+
+        <h1 class="hero-title reveal">
+
+          TIMELESS
+          <span>ELEGANCE</span>
+
+        </h1>
+
+
+        <p class="hero-description reveal">
+
+          A new expression of watchmaking.
+          Designed for those who define their own time.
+
+        </p>
+
+
+        <div class="hero-actions reveal">
+
+          <a
+            href="#collection"
+            class="primary-button"
+          >
+            EXPLORE COLLECTION
+          </a>
+
+
+          <a
+            href="#story"
+            class="secondary-button"
+          >
+            DISCOVER BEN'S
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="hero-bottom">
+
+
+        <div class="scroll-indicator">
+
+          <span>
+            SCROLL TO DISCOVER
+          </span>
+
+          <div class="scroll-line"></div>
+
+        </div>
+
+
+        <div class="hero-year">
+
+          <span>
+            EST.
+          </span>
+
+          <strong>
+            2026
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         INTRO
+    ================================================== -->
+
+    <section class="intro-section">
+
+
+      <div class="section-container">
+
+
+        <div class="intro-label reveal">
+
+          <span>
+            01
+          </span>
+
+          <span>
+            THE BEN'S EXPERIENCE
+          </span>
+
+        </div>
+
+
+        <div class="intro-content">
+
+
+          <h2 class="large-heading reveal">
+
+            MORE THAN
+            <span>A WATCH.</span>
+
+          </h2>
+
+
+          <div class="intro-text reveal">
+
+            <p>
+
+              Ben's Collection is built around one idea:
+              elegance should feel timeless.
+
+            </p>
+
+            <p>
+
+              Every piece is selected to create a balance
+              between character, design and presence.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         COLLECTION
+    ================================================== -->
+
+    <section
+      id="collection"
+      class="collection-section"
+    >
+
+
+      <div class="section-container">
+
+
+        <div class="section-heading reveal">
+
+
+          <div class="section-number">
+            02
+          </div>
+
+
+          <div>
+
+            <span class="section-kicker">
+              SELECTED TIMEPIECES
+            </span>
+
+            <h2>
+              THE COLLECTION
+            </h2>
+
+          </div>
+
+
+          <p>
+
+            Discover the pieces selected
+            for the Ben's Collection.
+
+          </p>
+
+
+        </div>
+
+
+        <div
+          id="products"
+          class="products-grid"
+        >
+
+          <!-- Products generated by script.js -->
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FEATURED EXPERIENCE
+    ================================================== -->
+
+    <section class="featured-section">
+
+
+      <div class="featured-overlay"></div>
+
+
+      <div class="section-container featured-container">
+
+
+        <div class="featured-content reveal">
+
+
+          <span class="section-kicker">
+            TIME IS PERSONAL
+          </span>
+
+
+          <h2>
+
+            WEAR YOUR
+            <span>MOMENT.</span>
+
+          </h2>
+
+
+          <p>
+
+            Style evolves.
+            Time remains.
+
+          </p>
+
+
+          <a
+            href="#collection"
+            class="primary-button"
+          >
+            VIEW TIMEPIECES
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         STORY
+    ================================================== -->
+
+    <section
+      id="story"
+      class="story-section"
+    >
+
+
+      <div class="section-container">
+
+
+        <div class="story-grid">
+
+
+          <div class="story-visual reveal">
+
+            <div class="story-frame">
+
+              <div class="story-frame-inner">
+
+                <span class="story-mark">
+                  B
+                </span>
+
+                <span class="story-frame-text">
+                  BEN'S COLLECTION
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="story-content reveal">
+
+
+            <div class="section-number">
+              03
+            </div>
+
+
+            <span class="section-kicker">
+              OUR PHILOSOPHY
+            </span>
+
+
+            <h2>
+
+              IDENTITY
+              <span>&amp; HERITAGE.</span>
+
+            </h2>
+
+
+            <p>
+
+              Ben's Collection is more than a collection
+              of watches. It is an identity, a signature,
+              and a vision of timeless elegance.
+
+            </p>
+
+
+            <p>
+
+              Our aesthetic combines dark luxury,
+              refined details and contemporary design
+              to create a distinct experience.
+
+            </p>
+
+
+            <a
+              href="#contact"
+              class="text-link"
+            >
+              CONNECT WITH BEN'S
+              <span>→</span>
+            </a>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         SOCIAL MEDIA
+    ================================================== -->
+
+    <section
+      id="socials"
+      class="social-section"
+    >
+
+
+      <div class="section-container">
+
+
+        <div class="section-heading centered reveal">
+
+
+          <div class="section-number">
+            04
+          </div>
+
+
+          <span class="section-kicker">
+            FOLLOW THE JOURNEY
+          </span>
+
+
+          <h2>
+            BEN'S <span>WORLD.</span>
+          </h2>
+
+
+          <p>
+
+            Follow Ben's Collection
+            and discover the latest pieces.
+
+          </p>
+
+
+        </div>
+
+
+        <div class="social-grid">
+
+
+          <!-- INSTAGRAM -->
+
+          <a
+            href="https://www.instagram.com/bens_collection.17"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card reveal"
+          >
+
+            <div class="social-card-icon">
+              ◎
+            </div>
+
+            <div class="social-card-content">
+
+              <span>
+                INSTAGRAM
+              </span>
+
+              <strong>
+                @bens_collection.17
+              </strong>
+
+            </div>
+
+            <div class="social-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+
+          <!-- FACEBOOK -->
+
+          <a
+            href="https://www.facebook.com/share/1K7wEq5SY6/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card reveal"
+          >
+
+            <div class="social-card-icon">
+              f
+            </div>
+
+            <div class="social-card-content">
+
+              <span>
+                FACEBOOK
+              </span>
+
+              <strong>
+                Ben's Collection
+              </strong>
+
+            </div>
+
+            <div class="social-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+
+          <!-- TIKTOK -->
+
+          <a
+            href="https://www.tiktok.com/@bens_collection.17"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card reveal"
+          >
+
+            <div class="social-card-icon">
+              ♪
+            </div>
+
+            <div class="social-card-content">
+
+              <span>
+                TIKTOK
+              </span>
+
+              <strong>
+                @bens_collection.17
+              </strong>
+
+            </div>
+
+            <div class="social-arrow">
+              ↗
+            </div>
+
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CONTACT / CTA
+    ================================================== -->
+
+    <section
+      id="contact"
+      class="contact-section"
+    >
+
+
+      <div class="contact-glow"></div>
+
+
+      <div class="section-container contact-container">
+
+
+        <div class="contact-content reveal">
+
+
+          <span class="section-kicker">
+            READY TO DEFINE YOUR TIME?
+          </span>
+
+
+          <h2>
+
+            FIND YOUR
+            <span>TIMEPIECE.</span>
+
+          </h2>
+
+
+          <p>
+
+            Discover the collection and
+            order your favorite piece.
+
+          </p>
+
+
+          <div class="contact-actions">
+
+
+            <a
+              href="#collection"
+              class="primary-button"
+            >
+              SHOP COLLECTION
+            </a>
+
+
+            <a
+              href="https://wa.me/212770190265"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="secondary-button"
+            >
+              WHATSAPP
+            </a>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
+
+  <footer class="footer">
+
+
+    <div class="section-container">
+
+
+      <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+
+          <a
+            href="#home"
+            class="brand footer-logo"
+          >
+
+            <span class="brand-main">
+              BEN'S
+            </span>
+
+            <span class="brand-sub">
+              COLLECTION
+            </span>
+
+          </a>
+
+
+          <p>
+            TIMELESS ELEGANCE
+          </p>
+
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+          <a href="#home">
+            HOME
+          </a>
+
+          <a href="#collection">
+            COLLECTION
+          </a>
+
+          <a href="#story">
+            OUR STORY
+          </a>
+
+          <a href="#socials">
+            SOCIAL
+          </a>
+
+          <a href="#contact">
+            CONTACT
+          </a>
+
+
+        </div>
+
+
+        <div class="footer-socials">
+
+
+          <a
+            href="https://www.instagram.com/bens_collection.17"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+
+
+          <a
+            href="https://www.facebook.com/share/1K7wEq5SY6/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+
+
+          <a
+            href="https://www.tiktok.com/@bens_collection.17"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TikTok
+          </a>
+
+
+          <a
+            href="https://wa.me/212770190265"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+
+        <span>
+          © 2026 Ben's Collection
+        </span>
+
+
+        <span>
+          ALL RIGHTS RESERVED
+        </span>
+
+
+        <span>
+          TIMELESS ELEGANCE
+        </span>
+
+
+      </div>
+
 
     </div>
+
 
   </footer>
 
 
 
-  <!-- =========================
-       PRODUCT DETAILS MODAL
-  ========================= -->
+  <!-- ==================================================
+       PRODUCT MODAL
+  ================================================== -->
 
   <div
     id="productModal"
     class="modal"
   >
 
+
+    <div class="modal-backdrop"></div>
+
+
     <div class="modal-content">
+
 
       <button
         class="close-modal"
         onclick="closeProduct()"
-        aria-label="Close"
+        type="button"
+        aria-label="Close product"
       >
         ×
       </button>
 
 
-      <img
-        id="modalImage"
-        src=""
-        alt="Selected watch"
-      >
+      <div class="product-modal-grid">
 
 
-      <div class="modal-info">
+        <div class="modal-image-wrapper">
 
-        <h2 id="modalName">
-        </h2>
+          <img
+            id="modalImage"
+            src=""
+            alt="Selected watch"
+          >
 
-        <p id="modalDescription">
-        </p>
-
-        <p
-          id="modalPrice"
-          class="modal-price"
-        >
-        </p>
+        </div>
 
 
-        <button
-          class="main-btn"
-          onclick="openCheckout()"
-        >
-          COMMANDER
-        </button>
+        <div class="modal-info">
+
+
+          <span class="modal-kicker">
+            BEN'S COLLECTION
+          </span>
+
+
+          <h2 id="modalName">
+          </h2>
+
+
+          <p
+            id="modalDescription"
+            class="modal-description"
+          >
+          </p>
+
+
+          <div class="modal-divider"></div>
+
+
+          <div class="modal-price-block">
+
+            <span>
+              PRICE
+            </span>
+
+            <strong id="modalPrice">
+            </strong>
+
+          </div>
+
+
+          <button
+            class="primary-button modal-order-button"
+            onclick="openCheckout()"
+            type="button"
+          >
+            COMMANDER
+          </button>
+
+
+        </div>
+
 
       </div>
 
+
     </div>
+
 
   </div>
 
 
 
-  <!-- =========================
-       CHECKOUT
-  ========================= -->
+  <!-- ==================================================
+       CHECKOUT MODAL
+  ================================================== -->
 
   <div
     id="checkoutModal"
     class="modal"
   >
 
-    <div
-      class="modal-content checkout-content"
-    >
+
+    <div class="modal-backdrop"></div>
+
+
+    <div class="modal-content checkout-content">
+
 
       <button
         class="close-modal"
         onclick="closeCheckout()"
-        aria-label="Close"
+        type="button"
+        aria-label="Close checkout"
       >
         ×
       </button>
 
 
+      <div class="checkout-header">
+
+        <span class="modal-kicker">
+          BEN'S COLLECTION
+        </span>
+
+        <h2>
+          COMPLETE YOUR ORDER
+        </h2>
+
+      </div>
+
+
       <div class="checkout-product">
+
 
         <img
           id="checkoutImage"
@@ -576,116 +1042,129 @@
 
         <div>
 
-          <h2 id="checkoutName">
-          </h2>
+          <span>
+            SELECTED TIMEPIECE
+          </span>
 
-          <p
+          <h3 id="checkoutName">
+          </h3>
+
+          <strong
             id="checkoutPrice"
-            class="modal-price"
+            class="checkout-product-price"
           >
-          </p>
+          </strong>
 
         </div>
 
-      </div>
 
+      </div>
 
 
       <form id="orderForm">
 
 
-        <div class="form-group">
+        <div class="form-grid">
 
-          <label for="customerName">
-            Nom complet
-          </label>
 
-          <input
-            type="text"
-            id="customerName"
-            placeholder="Votre nom complet"
-            required
-          >
+          <div class="form-group">
+
+            <label for="customerName">
+              NOM COMPLET
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              placeholder="Votre nom complet"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="customerPhone">
+              TÉLÉPHONE
+            </label>
+
+            <input
+              type="tel"
+              id="customerPhone"
+              placeholder="Votre numéro"
+              required
+            >
+
+          </div>
+
 
         </div>
 
 
-
-        <div class="form-group">
-
-          <label for="customerPhone">
-            Téléphone
-          </label>
-
-          <input
-            type="tel"
-            id="customerPhone"
-            placeholder="Votre numéro"
-            required
-          >
-
-        </div>
+        <div class="form-grid">
 
 
+          <div class="form-group">
 
-        <div class="form-group">
+            <label for="customerCity">
+              VILLE
+            </label>
 
-          <label for="customerCity">
-            Ville
-          </label>
+            <input
+              type="text"
+              id="customerCity"
+              placeholder="Votre ville"
+              required
+            >
 
-          <input
-            type="text"
-            id="customerCity"
-            placeholder="Votre ville"
-            required
-          >
-
-        </div>
-
+          </div>
 
 
-        <div class="form-group">
+          <div class="form-group">
 
-          <label for="customerAddress">
-            Adresse
-          </label>
+            <label for="customerAddress">
+              ADRESSE
+            </label>
 
-          <textarea
-            id="customerAddress"
-            placeholder="Votre adresse complète"
-            rows="3"
-            required
-          ></textarea>
+            <input
+              type="text"
+              id="customerAddress"
+              placeholder="Votre adresse"
+              required
+            >
+
+          </div>
+
 
         </div>
-
 
 
         <div class="form-group">
 
           <label for="customerNote">
-            Note (optionnel)
+            NOTE — OPTIONNEL
           </label>
 
           <textarea
             id="customerNote"
-            placeholder="Une remarque..."
-            rows="2"
+            placeholder="Une remarque concernant votre commande..."
+            rows="3"
           ></textarea>
 
         </div>
 
 
-
         <div class="payment-section">
 
-          <h3>
-            Mode de paiement
-          </h3>
+
+          <span class="payment-label">
+            MODE DE PAIEMENT
+          </span>
 
 
           <label class="payment-option">
+
 
             <input
               type="radio"
@@ -694,31 +1173,40 @@
               checked
             >
 
-            Paiement à la livraison
+
+            <span class="payment-radio"></span>
+
+
+            <span>
+              Paiement à la livraison
+            </span>
+
 
           </label>
+
 
         </div>
 
 
-
         <div class="checkout-total">
+
 
           <span>
             TOTAL
           </span>
 
+
           <strong id="totalPrice">
             0.00 MAD
           </strong>
 
-        </div>
 
+        </div>
 
 
         <button
           type="submit"
-          class="main-btn checkout-btn"
+          class="primary-button checkout-button"
         >
           CONFIRMER LA COMMANDE
         </button>
@@ -726,15 +1214,17 @@
 
       </form>
 
+
     </div>
+
 
   </div>
 
 
 
-  <!-- =========================
+  <!-- ==================================================
        JAVASCRIPT
-  ========================= -->
+  ================================================== -->
 
   <script src="script.js"></script>
 
