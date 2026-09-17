@@ -4,28 +4,28 @@ const products = [
   {
     id: 1,
     name: "Rolex Datejust",
-    price: 210,
+    price: 209.99,
     image: "images/rolex-datejust.jpg",
     description: "Montre élégante avec bracelet inox et cadran raffiné."
   },
   {
     id: 2,
     name: "Rolex Day-Date",
-    price: 280,
+    price: 279.99,
     image: "images/rolex-daydate.jpg",
     description: "Design premium et présence élégante pour toutes les occasions."
   },
   {
     id: 3,
     name: "Patek Philippe",
-    price: 220,
+    price: 219.99,
     image: "images/patek-philippe.jpg",
     description: "Une pièce au style luxueux et intemporel."
   },
   {
     id: 4,
     name: "Hublot Big Bang",
-    price: 210,
+    price: 209.99,
     image: "images/hublot-big-bang.jpg",
     description: "Un design moderne et sportif avec une forte présence."
   }
@@ -55,7 +55,7 @@ function displayProducts() {
           <p>${product.description}</p>
 
           <p class="price">
-            ${product.price} MAD
+            ${product.price.toFixed(2)} MAD
           </p>
 
           <button
@@ -69,7 +69,6 @@ function displayProducts() {
     `;
   });
 }
-
 
 function openProduct(id) {
   selectedProduct = products.find(product => product.id === id);
@@ -86,20 +85,18 @@ function openProduct(id) {
     selectedProduct.description;
 
   document.getElementById("modalPrice").textContent =
-    selectedProduct.price + " MAD";
+    selectedProduct.price.toFixed(2) + " MAD";
 
   document.getElementById("productModal").style.display = "block";
 
   document.body.style.overflow = "hidden";
 }
 
-
 function closeProduct() {
   document.getElementById("productModal").style.display = "none";
 
   document.body.style.overflow = "auto";
 }
-
 
 function openCheckout() {
   if (!selectedProduct) return;
@@ -113,16 +110,15 @@ function openCheckout() {
     selectedProduct.name;
 
   document.getElementById("checkoutPrice").textContent =
-    selectedProduct.price + " MAD";
+    selectedProduct.price.toFixed(2) + " MAD";
 
   document.getElementById("totalPrice").textContent =
-    selectedProduct.price + " MAD";
+    selectedProduct.price.toFixed(2) + " MAD";
 
   document.getElementById("checkoutModal").style.display = "block";
 
   document.body.style.overflow = "hidden";
 }
-
 
 function closeCheckout() {
   document.getElementById("checkoutModal").style.display = "none";
@@ -130,13 +126,10 @@ function closeCheckout() {
   document.body.style.overflow = "auto";
 }
 
-
 const orderForm = document.getElementById("orderForm");
 
 if (orderForm) {
-
   orderForm.addEventListener("submit", function(event) {
-
     event.preventDefault();
 
     if (!selectedProduct) return;
@@ -156,7 +149,6 @@ if (orderForm) {
     const note =
       document.getElementById("customerNote").value.trim();
 
-
     const message =
 `🕰️ *BEN'S COLLECTION — NOUVELLE COMMANDE*
 
@@ -164,7 +156,7 @@ if (orderForm) {
 ${selectedProduct.name}
 
 💰 *Prix :*
-${selectedProduct.price} MAD
+${selectedProduct.price.toFixed(2)} MAD
 
 👤 *Nom :*
 ${name}
@@ -190,39 +182,30 @@ BEN'S COLLECTION
 TIMELESS ELEGANCE
 ━━━━━━━━━━━━━━`;
 
-
     const whatsappURL =
       "https://wa.me/" +
       WHATSAPP_NUMBER +
       "?text=" +
       encodeURIComponent(message);
 
-
     window.open(whatsappURL, "_blank");
-
   });
 }
 
-
 window.onclick = function(event) {
-
   const productModal =
     document.getElementById("productModal");
 
   const checkoutModal =
     document.getElementById("checkoutModal");
 
-
   if (event.target === productModal) {
     closeProduct();
   }
 
-
   if (event.target === checkoutModal) {
     closeCheckout();
   }
-
 };
-
 
 displayProducts();
