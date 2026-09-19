@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,6 +163,7 @@
       <div class="section-heading">
 
         <div>
+
           <div class="section-label">
             02 — THE COLLECTION
           </div>
@@ -170,12 +172,97 @@
             TIMEPIECES
             <span>FOR YOU.</span>
           </h2>
+
         </div>
 
         <p>
           Discover selected pieces designed to bring
           timeless elegance to every moment.
         </p>
+
+      </div>
+
+
+      <!-- WATCH COLLECTION CARD -->
+      <div
+        class="watch-collection-card"
+        style="
+          width:100%;
+          max-width:1200px;
+          margin:0 auto 70px;
+          position:relative;
+          overflow:hidden;
+          border:1px solid rgba(212,175,55,0.28);
+          background:#080b12;
+          border-radius:4px;
+        "
+      >
+
+        <img
+          src="images/bens-watch-collection.jpg"
+          alt="Ben's Collection Watches"
+          style="
+            width:100%;
+            aspect-ratio:4 / 3;
+            object-fit:cover;
+            display:block;
+          "
+        >
+
+        <div
+          style="
+            position:absolute;
+            inset:0;
+            background:linear-gradient(
+              180deg,
+              rgba(0,0,0,0.05) 35%,
+              rgba(0,0,0,0.82) 100%
+            );
+          "
+        ></div>
+
+        <div
+          style="
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:0;
+            padding:clamp(24px,5vw,55px);
+          "
+        >
+
+          <div
+            style="
+              font-size:11px;
+              letter-spacing:0.25em;
+              color:#d4af37;
+              margin-bottom:12px;
+            "
+          >
+            BEN'S COLLECTION
+          </div>
+
+          <h3
+            style="
+              margin:0 0 18px;
+              font-size:clamp(30px,5vw,62px);
+              line-height:0.95;
+              color:#ffffff;
+              font-weight:500;
+            "
+          >
+            WATCH
+            <span style="color:#d4af37;">COLLECTION.</span>
+          </h3>
+
+          <a
+            href="#products"
+            class="btn btn-gold"
+          >
+            EXPLORE WATCHES
+          </a>
+
+        </div>
 
       </div>
 
@@ -727,3 +814,19 @@
 
 </body>
 </html>
+```
+
+هادي هي النسخة الجديدة. **ما تبدلش `script.js` ولا `style.css` دابا.** غير عوّض `index.html` كامل بهاد النسخة، ودير **Commit changes**.
+
+الصورة خاصها تكون بالضبط هنا:
+
+```text
+Ben-sCollection/
+├── index.html
+├── style.css
+├── script.js
+└── images/
+    └── bens-watch-collection.jpg
+```
+
+ومن بعد الموقع غادي يلقاها مباشرة.
