@@ -1,4 +1,13 @@
+/* =========================================================
+   BEN'S COLLECTION — V3 SCRIPT
+   ========================================================= */
+
 const WHATSAPP_NUMBER = "212770190265";
+
+
+/* =========================
+   PRODUCTS
+   ========================= */
 
 const products = [
   {
@@ -6,20 +15,27 @@ const products = [
     name: "Rolex Datejust",
     price: 209.99,
     image: "images/rolex-datejust.jpg",
-    description: "Montre élégante avec bracelet inox et cadran raffiné."
+    description:
+      "Montre élégante avec bracelet inox et cadran raffiné."
   },
 
   {
     id: 2,
     name: "Rolex Day-Date",
     price: 279.99,
-    image: "images/rolex-daydate-1.jpg",
+
+    // 3 IMAGES UNIQUEMENT
     images: [
-      "images/rolex-daydate-1.jpg",
-      "images/rolex-daydate-2.jpg",
-      "images/rolex-daydate-3.jpg"
+      "images/daydate/rolex-daydate-1.jpg",
+      "images/daydate/rolex-daydate-2.jpg",
+      "images/daydate/rolex-daydate-3.jpg"
     ],
-    description: "Design premium et présence élégante pour toutes les occasions."
+
+    // Première image affichée sur la carte
+    image: "images/daydate/rolex-daydate-1.jpg",
+
+    description:
+      "Design premium et présence élégante pour toutes les occasions."
   },
 
   {
@@ -27,7 +43,8 @@ const products = [
     name: "Patek Philippe",
     price: 219.99,
     image: "images/patek-philippe.jpg",
-    description: "Une pièce au style luxueux et intemporel."
+    description:
+      "Une pièce au style luxueux et intemporel."
   },
 
   {
@@ -35,33 +52,45 @@ const products = [
     name: "Hublot Big Bang",
     price: 209.99,
     image: "images/hublot-big-bang.jpg",
-    description: "Un design moderne et sportif avec une forte présence."
+    description:
+      "Un design moderne et sportif avec une forte présence."
   }
 ];
+
 
 let selectedProduct = null;
 
 
-/* LOADER */
+/* =========================
+   PAGE LOADER
+   ========================= */
+
 window.addEventListener("load", function () {
+
   setTimeout(function () {
-    const loader = document.getElementById("pageLoader");
+
+    const loader =
+      document.getElementById("pageLoader");
 
     if (loader) {
       loader.classList.add("loaded");
-      loader.style.opacity = "0";
-      loader.style.visibility = "hidden";
-      loader.style.pointerEvents = "none";
     }
 
     document.body.classList.remove("no-scroll");
-  }, 1200);
+
+  }, 1600);
+
 });
 
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+   ========================= */
+
 window.addEventListener("scroll", function () {
-  const header = document.getElementById("siteHeader");
+
+  const header =
+    document.getElementById("siteHeader");
 
   if (!header) return;
 
@@ -70,38 +99,64 @@ window.addEventListener("scroll", function () {
   } else {
     header.classList.remove("scrolled");
   }
+
 });
 
 
-/* MOBILE MENU */
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
+/* =========================
+   MOBILE MENU
+   ========================= */
+
+const menuToggle =
+  document.getElementById("menuToggle");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
 
 if (menuToggle && mobileMenu) {
+
   menuToggle.addEventListener("click", function () {
+
     mobileMenu.classList.toggle("active");
+
   });
 
-  mobileMenu.querySelectorAll("a").forEach(function (link) {
+
+  const mobileLinks =
+    mobileMenu.querySelectorAll("a");
+
+  mobileLinks.forEach(function (link) {
+
     link.addEventListener("click", function () {
+
       mobileMenu.classList.remove("active");
+
     });
+
   });
+
 }
 
 
-/* PRODUCTS */
+/* =========================
+   DISPLAY PRODUCTS
+   ========================= */
+
 function displayProducts() {
 
-  const container = document.getElementById("products");
+  const container =
+    document.getElementById("products");
 
   if (!container) return;
 
   container.innerHTML = "";
 
+
   products.forEach(function (product) {
 
     container.innerHTML += `
+
       <article class="product">
 
         <img
@@ -113,9 +168,13 @@ function displayProducts() {
 
         <div class="product-info">
 
-          <h3>${product.name}</h3>
+          <h3>
+            ${product.name}
+          </h3>
 
-          <p>${product.description}</p>
+          <p>
+            ${product.description}
+          </p>
 
           <p class="price">
             ${product.price.toFixed(2)} MAD
@@ -131,135 +190,299 @@ function displayProducts() {
         </div>
 
       </article>
+
     `;
+
   });
+
 }
 
 
-/* OPEN PRODUCT */
+/* =========================
+   OPEN PRODUCT
+   ========================= */
+
 function openProduct(id) {
 
-  selectedProduct = products.find(function (product) {
-    return product.id === id;
-  });
+  selectedProduct =
+    products.find(function (product) {
+      return product.id === id;
+    });
+
 
   if (!selectedProduct) return;
 
-  const modal = document.getElementById("productModal");
-  const image = document.getElementById("modalImage");
-  const name = document.getElementById("modalName");
-  const description = document.getElementById("modalDescription");
-  const price = document.getElementById("modalPrice");
+
+  const modal =
+    document.getElementById("productModal");
+
+  const image =
+    document.getElementById("modalImage");
+
+  const name =
+    document.getElementById("modalName");
+
+  const description =
+    document.getElementById("modalDescription");
+
+  const price =
+    document.getElementById("modalPrice");
+
+
+  /*
+   * DAY-DATE:
+   * Kanbdaou b image 1.
+   * Les 3 images kaynin f selectedProduct.images.
+   */
 
   if (image) {
-    image.src = selectedProduct.image;
-    image.alt = selectedProduct.name;
+
+    image.src =
+      selectedProduct.image;
+
+    image.alt =
+      selectedProduct.name;
+
   }
+
 
   if (name) {
-    name.textContent = selectedProduct.name;
+
+    name.textContent =
+      selectedProduct.name;
+
   }
+
 
   if (description) {
-    description.textContent = selectedProduct.description;
+
+    description.textContent =
+      selectedProduct.description;
+
   }
+
 
   if (price) {
-    price.textContent = selectedProduct.price.toFixed(2) + " MAD";
+
+    price.textContent =
+      selectedProduct.price.toFixed(2) +
+      " MAD";
+
   }
 
+
   if (modal) {
+
     modal.style.display = "flex";
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("no-scroll");
+
+    modal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.classList.add(
+      "no-scroll"
+    );
+
   }
+
 }
 
 
-/* CLOSE PRODUCT */
+/* =========================
+   CLOSE PRODUCT
+   ========================= */
+
 function closeProduct() {
 
-  const modal = document.getElementById("productModal");
+  const modal =
+    document.getElementById("productModal");
 
   if (!modal) return;
 
-  modal.style.display = "none";
-  modal.setAttribute("aria-hidden", "true");
 
-  document.body.classList.remove("no-scroll");
+  modal.style.display = "none";
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "no-scroll"
+  );
+
 }
 
 
-/* CHECKOUT */
+/* =========================
+   OPEN CHECKOUT
+   ========================= */
+
 function openCheckout() {
 
   if (!selectedProduct) return;
 
+
   closeProduct();
 
-  const image = document.getElementById("checkoutImage");
-  const name = document.getElementById("checkoutName");
-  const price = document.getElementById("checkoutPrice");
-  const total = document.getElementById("totalPrice");
-  const modal = document.getElementById("checkoutModal");
+
+  const image =
+    document.getElementById("checkoutImage");
+
+  const name =
+    document.getElementById("checkoutName");
+
+  const price =
+    document.getElementById("checkoutPrice");
+
+  const total =
+    document.getElementById("totalPrice");
+
+  const modal =
+    document.getElementById("checkoutModal");
+
 
   if (image) {
-    image.src = selectedProduct.image;
-    image.alt = selectedProduct.name;
+
+    image.src =
+      selectedProduct.image;
+
+    image.alt =
+      selectedProduct.name;
+
   }
+
 
   if (name) {
-    name.textContent = selectedProduct.name;
+
+    name.textContent =
+      selectedProduct.name;
+
   }
+
 
   if (price) {
-    price.textContent = selectedProduct.price.toFixed(2) + " MAD";
+
+    price.textContent =
+      selectedProduct.price.toFixed(2) +
+      " MAD";
+
   }
+
 
   if (total) {
-    total.textContent = selectedProduct.price.toFixed(2) + " MAD";
+
+    total.textContent =
+      selectedProduct.price.toFixed(2) +
+      " MAD";
+
   }
 
+
   if (modal) {
+
     modal.style.display = "flex";
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("no-scroll");
+
+    modal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.classList.add(
+      "no-scroll"
+    );
+
   }
+
 }
 
 
-/* CLOSE CHECKOUT */
+/* =========================
+   CLOSE CHECKOUT
+   ========================= */
+
 function closeCheckout() {
 
-  const modal = document.getElementById("checkoutModal");
+  const modal =
+    document.getElementById("checkoutModal");
 
   if (!modal) return;
 
-  modal.style.display = "none";
-  modal.setAttribute("aria-hidden", "true");
 
-  document.body.classList.remove("no-scroll");
+  modal.style.display = "none";
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "no-scroll"
+  );
+
 }
 
 
-/* ORDER */
-const orderForm = document.getElementById("orderForm");
+/* =========================
+   ORDER FORM
+   ========================= */
+
+const orderForm =
+  document.getElementById("orderForm");
+
 
 if (orderForm) {
 
-  orderForm.addEventListener("submit", function (event) {
+  orderForm.addEventListener(
+    "submit",
+    function (event) {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    if (!selectedProduct) return;
 
-    const name = document.getElementById("customerName").value.trim();
-    const phone = document.getElementById("customerPhone").value.trim();
-    const city = document.getElementById("customerCity").value.trim();
-    const address = document.getElementById("customerAddress").value.trim();
-    const note = document.getElementById("customerNote").value.trim();
+      if (!selectedProduct) {
+        return;
+      }
 
-    const message =
+
+      const name =
+        document
+          .getElementById("customerName")
+          .value
+          .trim();
+
+
+      const phone =
+        document
+          .getElementById("customerPhone")
+          .value
+          .trim();
+
+
+      const city =
+        document
+          .getElementById("customerCity")
+          .value
+          .trim();
+
+
+      const address =
+        document
+          .getElementById("customerAddress")
+          .value
+          .trim();
+
+
+      const note =
+        document
+          .getElementById("customerNote")
+          .value
+          .trim();
+
+
+      const message =
+
 `🕰️ *BEN'S COLLECTION — NOUVELLE COMMANDE*
 
 ⌚ *Produit :*
@@ -287,51 +510,97 @@ ${note || "Aucune"}
 À LA LIVRAISON
 
 ━━━━━━━━━━━━━━━━━━
+Merci pour votre commande.
 BEN'S COLLECTION
 TIMELESS ELEGANCE
 ━━━━━━━━━━━━━━━━━━`;
 
-    const whatsappURL =
-      "https://wa.me/" +
-      WHATSAPP_NUMBER +
-      "?text=" +
-      encodeURIComponent(message);
 
-    window.open(whatsappURL, "_blank");
-  });
+      const whatsappURL =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+
+    }
+  );
+
 }
 
 
-/* CLOSE MODALS */
-window.addEventListener("click", function (event) {
+/* =========================
+   CLOSE MODALS
+   ========================= */
 
-  const productModal = document.getElementById("productModal");
-  const checkoutModal = document.getElementById("checkoutModal");
+window.addEventListener(
+  "click",
+  function (event) {
 
-  if (productModal && event.target === productModal) {
-    closeProduct();
-  }
+    const productModal =
+      document.getElementById("productModal");
 
-  if (checkoutModal && event.target === checkoutModal) {
-    closeCheckout();
-  }
-});
+    const checkoutModal =
+      document.getElementById("checkoutModal");
 
 
-/* ESC */
-document.addEventListener("keydown", function (event) {
+    if (
+      productModal &&
+      event.target === productModal
+    ) {
 
-  if (event.key === "Escape") {
+      closeProduct();
 
-    closeProduct();
-    closeCheckout();
-
-    if (mobileMenu) {
-      mobileMenu.classList.remove("active");
     }
+
+
+    if (
+      checkoutModal &&
+      event.target === checkoutModal
+    ) {
+
+      closeCheckout();
+
+    }
+
   }
-});
+);
 
 
-/* START */
+/* =========================
+   ESC KEY
+   ========================= */
+
+document.addEventListener(
+  "keydown",
+  function (event) {
+
+    if (event.key === "Escape") {
+
+      closeProduct();
+      closeCheckout();
+
+      if (mobileMenu) {
+
+        mobileMenu.classList.remove(
+          "active"
+        );
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================
+   START
+   ========================= */
+
 displayProducts();
