@@ -1,6 +1,6 @@
 ```javascript
 /* =========================================================
-   BEN'S COLLECTION — V3 SCRIPT
+   BEN'S COLLECTION — V4 SCRIPT
    ========================================================= */
 
 const WHATSAPP_NUMBER = "212770190265";
@@ -25,15 +25,15 @@ const products = [
     name: "Rolex Day-Date",
     price: 279.99,
 
-    // 3 IMAGES UNIQUEMENT
+    // 3 IMAGES
     images: [
-      "images/daydate/rolex-daydate-1.jpg",
-      "images/daydate/rolex-daydate-2.jpg",
-      "images/daydate/rolex-daydate-3.jpg"
+      "images/rolex-daydate-1.jpg",
+      "images/rolex-daydate-2.jpg",
+      "images/rolex-daydate-3.jpg"
     ],
 
     // Première image affichée sur la carte
-    image: "images/daydate/rolex-daydate-1.jpg",
+    image: "images/rolex-daydate-1.jpg",
 
     description:
       "Design premium et présence élégante pour toutes les occasions."
@@ -60,6 +60,7 @@ const products = [
 
 
 let selectedProduct = null;
+let currentImageIndex = 0;
 
 
 /* =========================
@@ -214,6 +215,9 @@ function openProduct(id) {
   if (!selectedProduct) return;
 
 
+  currentImageIndex = 0;
+
+
   const modal =
     document.getElementById("productModal");
 
@@ -230,16 +234,16 @@ function openProduct(id) {
     document.getElementById("modalPrice");
 
 
-  /*
-   * DAY-DATE:
-   * Kanbdaou b image 1.
-   * Les 3 images kaynin f selectedProduct.images.
-   */
+  /* =========================
+     MAIN IMAGE
+     ========================= */
 
   if (image) {
 
     image.src =
-      selectedProduct.image;
+      selectedProduct.images
+        ? selectedProduct.images[0]
+        : selectedProduct.image;
 
     image.alt =
       selectedProduct.name;
@@ -272,6 +276,13 @@ function openProduct(id) {
   }
 
 
+  /* =========================
+     DAY-DATE IMAGE NAVIGATION
+     ========================= */
+
+  createImageNavigation();
+
+
   if (modal) {
 
     modal.style.display = "flex";
@@ -286,6 +297,137 @@ function openProduct(id) {
     );
 
   }
+
+}
+
+
+/* =========================
+   CREATE IMAGE NAVIGATION
+   ========================= */
+
+function createImageNavigation() {
+
+  const imageWrap =
+    document.querySelector(".modal-image-wrap");
+
+  if (!imageWrap || !selectedProduct) return;
+
+
+  /* Supprimer ancienne navigation */
+
+  const oldNavigation =
+    imageWrap.querySelector(".product-gallery");
+
+  if (oldNavigation) {
+    oldNavigation.remove();
+  }
+
+
+  /* Si le produit n'a qu'une image */
+
+  if (
+    !selectedProduct.images ||
+    selectedProduct.images.length <= 1
+  ) {
+    return;
+  }
+
+
+  const gallery =
+    document.createElement("div");
+
+  gallery.className =
+    "product-gallery";
+
+
+  selectedProduct.images.forEach(
+    function (imagePath, index) {
+
+      const thumb =
+        document.createElement("img");
+
+      thumb.src =
+        imagePath;
+
+      thumb.alt =
+        selectedProduct.name +
+        " " +
+        (index + 1);
+
+      thumb.className =
+        "gallery-thumb";
+
+
+      if (index === 0) {
+        thumb.classList.add("active");
+      }
+
+
+      thumb.addEventListener(
+        "click",
+        function () {
+
+          currentImageIndex = index;
+
+          changeProductImage(index);
+
+        }
+      );
+
+
+      gallery.appendChild(thumb);
+
+    }
+  );
+
+
+  imageWrap.appendChild(gallery);
+
+}
+
+
+/* =========================
+   CHANGE PRODUCT IMAGE
+   ========================= */
+
+function changeProductImage(index) {
+
+  if (
+    !selectedProduct ||
+    !selectedProduct.images
+  ) {
+    return;
+  }
+
+
+  const image =
+    document.getElementById("modalImage");
+
+
+  if (image) {
+
+    image.src =
+      selectedProduct.images[index];
+
+  }
+
+
+  const thumbnails =
+    document.querySelectorAll(
+      ".gallery-thumb"
+    );
+
+
+  thumbnails.forEach(
+    function (thumb, i) {
+
+      thumb.classList.toggle(
+        "active",
+        i === index
+      );
+
+    }
+  );
 
 }
 
@@ -347,7 +489,9 @@ function openCheckout() {
   if (image) {
 
     image.src =
-      selectedProduct.image;
+      selectedProduct.images
+        ? selectedProduct.images[0]
+        : selectedProduct.image;
 
     image.alt =
       selectedProduct.name;
