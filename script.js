@@ -1,16 +1,17 @@
 ```javascript
 /* =========================================================
-   BEN'S COLLECTION — V4 SCRIPT
+   BEN'S COLLECTION — FINAL SCRIPT
    ========================================================= */
 
 const WHATSAPP_NUMBER = "212770190265";
 
 
-/* =========================
+/* =========================================================
    PRODUCTS
-   ========================= */
+   ========================================================= */
 
 const products = [
+
   {
     id: 1,
     name: "Rolex Datejust",
@@ -25,15 +26,13 @@ const products = [
     name: "Rolex Day-Date",
     price: 279.99,
 
-    // 3 IMAGES
+    image: "images/rolex-daydate-1.jpg",
+
     images: [
       "images/rolex-daydate-1.jpg",
       "images/rolex-daydate-2.jpg",
       "images/rolex-daydate-3.jpg"
     ],
-
-    // Première image affichée sur la carte
-    image: "images/rolex-daydate-1.jpg",
 
     description:
       "Design premium et présence élégante pour toutes les occasions."
@@ -56,16 +55,16 @@ const products = [
     description:
       "Un design moderne et sportif avec une forte présence."
   }
+
 ];
 
 
 let selectedProduct = null;
-let currentImageIndex = 0;
 
 
-/* =========================
+/* =========================================================
    PAGE LOADER
-   ========================= */
+   ========================================================= */
 
 window.addEventListener("load", function () {
 
@@ -75,7 +74,9 @@ window.addEventListener("load", function () {
       document.getElementById("pageLoader");
 
     if (loader) {
+
       loader.classList.add("loaded");
+
     }
 
     document.body.classList.remove("no-scroll");
@@ -85,9 +86,9 @@ window.addEventListener("load", function () {
 });
 
 
-/* =========================
+/* =========================================================
    NAVBAR
-   ========================= */
+   ========================================================= */
 
 window.addEventListener("scroll", function () {
 
@@ -96,18 +97,23 @@ window.addEventListener("scroll", function () {
 
   if (!header) return;
 
+
   if (window.scrollY > 40) {
+
     header.classList.add("scrolled");
+
   } else {
+
     header.classList.remove("scrolled");
+
   }
 
 });
 
 
-/* =========================
+/* =========================================================
    MOBILE MENU
-   ========================= */
+   ========================================================= */
 
 const menuToggle =
   document.getElementById("menuToggle");
@@ -128,6 +134,7 @@ if (menuToggle && mobileMenu) {
   const mobileLinks =
     mobileMenu.querySelectorAll("a");
 
+
   mobileLinks.forEach(function (link) {
 
     link.addEventListener("click", function () {
@@ -141,16 +148,18 @@ if (menuToggle && mobileMenu) {
 }
 
 
-/* =========================
+/* =========================================================
    DISPLAY PRODUCTS
-   ========================= */
+   ========================================================= */
 
 function displayProducts() {
 
   const container =
     document.getElementById("products");
 
+
   if (!container) return;
+
 
   container.innerHTML = "";
 
@@ -200,56 +209,57 @@ function displayProducts() {
 }
 
 
-/* =========================
+/* =========================================================
    OPEN PRODUCT
-   ========================= */
+   ========================================================= */
 
 function openProduct(id) {
 
   selectedProduct =
     products.find(function (product) {
+
       return product.id === id;
+
     });
 
 
   if (!selectedProduct) return;
 
 
-  currentImageIndex = 0;
-
-
   const modal =
     document.getElementById("productModal");
+
 
   const image =
     document.getElementById("modalImage");
 
+
   const name =
     document.getElementById("modalName");
 
+
   const description =
     document.getElementById("modalDescription");
+
 
   const price =
     document.getElementById("modalPrice");
 
 
-  /* =========================
-     MAIN IMAGE
-     ========================= */
+  /* MAIN IMAGE */
 
   if (image) {
 
     image.src =
-      selectedProduct.images
-        ? selectedProduct.images[0]
-        : selectedProduct.image;
+      selectedProduct.image;
 
     image.alt =
       selectedProduct.name;
 
   }
 
+
+  /* PRODUCT NAME */
 
   if (name) {
 
@@ -259,6 +269,8 @@ function openProduct(id) {
   }
 
 
+  /* DESCRIPTION */
+
   if (description) {
 
     description.textContent =
@@ -266,6 +278,8 @@ function openProduct(id) {
 
   }
 
+
+  /* PRICE */
 
   if (price) {
 
@@ -276,12 +290,7 @@ function openProduct(id) {
   }
 
 
-  /* =========================
-     DAY-DATE IMAGE NAVIGATION
-     ========================= */
-
-  createImageNavigation();
-
+  /* OPEN MODAL */
 
   if (modal) {
 
@@ -301,155 +310,27 @@ function openProduct(id) {
 }
 
 
-/* =========================
-   CREATE IMAGE NAVIGATION
-   ========================= */
-
-function createImageNavigation() {
-
-  const imageWrap =
-    document.querySelector(".modal-image-wrap");
-
-  if (!imageWrap || !selectedProduct) return;
-
-
-  /* Supprimer ancienne navigation */
-
-  const oldNavigation =
-    imageWrap.querySelector(".product-gallery");
-
-  if (oldNavigation) {
-    oldNavigation.remove();
-  }
-
-
-  /* Si le produit n'a qu'une image */
-
-  if (
-    !selectedProduct.images ||
-    selectedProduct.images.length <= 1
-  ) {
-    return;
-  }
-
-
-  const gallery =
-    document.createElement("div");
-
-  gallery.className =
-    "product-gallery";
-
-
-  selectedProduct.images.forEach(
-    function (imagePath, index) {
-
-      const thumb =
-        document.createElement("img");
-
-      thumb.src =
-        imagePath;
-
-      thumb.alt =
-        selectedProduct.name +
-        " " +
-        (index + 1);
-
-      thumb.className =
-        "gallery-thumb";
-
-
-      if (index === 0) {
-        thumb.classList.add("active");
-      }
-
-
-      thumb.addEventListener(
-        "click",
-        function () {
-
-          currentImageIndex = index;
-
-          changeProductImage(index);
-
-        }
-      );
-
-
-      gallery.appendChild(thumb);
-
-    }
-  );
-
-
-  imageWrap.appendChild(gallery);
-
-}
-
-
-/* =========================
-   CHANGE PRODUCT IMAGE
-   ========================= */
-
-function changeProductImage(index) {
-
-  if (
-    !selectedProduct ||
-    !selectedProduct.images
-  ) {
-    return;
-  }
-
-
-  const image =
-    document.getElementById("modalImage");
-
-
-  if (image) {
-
-    image.src =
-      selectedProduct.images[index];
-
-  }
-
-
-  const thumbnails =
-    document.querySelectorAll(
-      ".gallery-thumb"
-    );
-
-
-  thumbnails.forEach(
-    function (thumb, i) {
-
-      thumb.classList.toggle(
-        "active",
-        i === index
-      );
-
-    }
-  );
-
-}
-
-
-/* =========================
+/* =========================================================
    CLOSE PRODUCT
-   ========================= */
+   ========================================================= */
 
 function closeProduct() {
 
   const modal =
     document.getElementById("productModal");
 
+
   if (!modal) return;
 
 
   modal.style.display = "none";
 
+
   modal.setAttribute(
     "aria-hidden",
     "true"
   );
+
 
   document.body.classList.remove(
     "no-scroll"
@@ -458,9 +339,9 @@ function closeProduct() {
 }
 
 
-/* =========================
+/* =========================================================
    OPEN CHECKOUT
-   ========================= */
+   ========================================================= */
 
 function openCheckout() {
 
@@ -473,31 +354,37 @@ function openCheckout() {
   const image =
     document.getElementById("checkoutImage");
 
+
   const name =
     document.getElementById("checkoutName");
+
 
   const price =
     document.getElementById("checkoutPrice");
 
+
   const total =
     document.getElementById("totalPrice");
+
 
   const modal =
     document.getElementById("checkoutModal");
 
 
+  /* IMAGE */
+
   if (image) {
 
     image.src =
-      selectedProduct.images
-        ? selectedProduct.images[0]
-        : selectedProduct.image;
+      selectedProduct.image;
 
     image.alt =
       selectedProduct.name;
 
   }
 
+
+  /* NAME */
 
   if (name) {
 
@@ -506,6 +393,8 @@ function openCheckout() {
 
   }
 
+
+  /* PRICE */
 
   if (price) {
 
@@ -516,6 +405,8 @@ function openCheckout() {
   }
 
 
+  /* TOTAL */
+
   if (total) {
 
     total.textContent =
@@ -524,6 +415,8 @@ function openCheckout() {
 
   }
 
+
+  /* OPEN CHECKOUT */
 
   if (modal) {
 
@@ -543,24 +436,27 @@ function openCheckout() {
 }
 
 
-/* =========================
+/* =========================================================
    CLOSE CHECKOUT
-   ========================= */
+   ========================================================= */
 
 function closeCheckout() {
 
   const modal =
     document.getElementById("checkoutModal");
 
+
   if (!modal) return;
 
 
   modal.style.display = "none";
 
+
   modal.setAttribute(
     "aria-hidden",
     "true"
   );
+
 
   document.body.classList.remove(
     "no-scroll"
@@ -569,9 +465,9 @@ function closeCheckout() {
 }
 
 
-/* =========================
+/* =========================================================
    ORDER FORM
-   ========================= */
+   ========================================================= */
 
 const orderForm =
   document.getElementById("orderForm");
@@ -587,7 +483,9 @@ if (orderForm) {
 
 
       if (!selectedProduct) {
+
         return;
+
       }
 
 
@@ -679,9 +577,9 @@ TIMELESS ELEGANCE
 }
 
 
-/* =========================
-   CLOSE MODALS
-   ========================= */
+/* =========================================================
+   CLOSE MODALS WHEN CLICKING OUTSIDE
+   ========================================================= */
 
 window.addEventListener(
   "click",
@@ -689,6 +587,7 @@ window.addEventListener(
 
     const productModal =
       document.getElementById("productModal");
+
 
     const checkoutModal =
       document.getElementById("checkoutModal");
@@ -717,9 +616,9 @@ window.addEventListener(
 );
 
 
-/* =========================
+/* =========================================================
    ESC KEY
-   ========================= */
+   ========================================================= */
 
 document.addEventListener(
   "keydown",
@@ -728,7 +627,9 @@ document.addEventListener(
     if (event.key === "Escape") {
 
       closeProduct();
+
       closeCheckout();
+
 
       if (mobileMenu) {
 
@@ -744,9 +645,9 @@ document.addEventListener(
 );
 
 
-/* =========================
-   START
-   ========================= */
+/* =========================================================
+   START WEBSITE
+   ========================================================= */
 
 displayProducts();
 ```
