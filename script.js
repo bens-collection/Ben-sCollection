@@ -1,854 +1,337 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+const WHATSAPP_NUMBER = "212770190265";
 
-  <title>Ben's Collection — Timeless Elegance</title>
+const products = [
+  {
+    id: 1,
+    name: "Rolex Datejust",
+    price: 209.99,
+    image: "images/rolex-datejust.jpg",
+    description: "Montre élégante avec bracelet inox et cadran raffiné."
+  },
 
-  <meta
-    name="description"
-    content="Ben's Collection — Timeless Elegance. Discover our curated collection of watches."
-  >
+  {
+    id: 2,
+    name: "Rolex Day-Date",
+    price: 279.99,
+    image: "images/rolex-daydate-1.jpg",
+    images: [
+      "images/rolex-daydate-1.jpg",
+      "images/rolex-daydate-2.jpg",
+      "images/rolex-daydate-3.jpg"
+    ],
+    description: "Design premium et présence élégante pour toutes les occasions."
+  },
 
-  <link rel="stylesheet" href="style.css">
+  {
+    id: 3,
+    name: "Patek Philippe",
+    price: 219.99,
+    image: "images/patek-philippe.jpg",
+    description: "Une pièce au style luxueux et intemporel."
+  },
 
-  <!-- EMERGENCY LOADER FALLBACK -->
-  <style>
-    /* Make sure the page can never remain blocked by the loader */
-    .page-loader.loaded {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
+  {
+    id: 4,
+    name: "Hublot Big Bang",
+    price: 209.99,
+    image: "images/hublot-big-bang.jpg",
+    description: "Un design moderne et sportif avec une forte présence."
+  }
+];
+
+let selectedProduct = null;
+
+
+/* LOADER */
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    const loader = document.getElementById("pageLoader");
+
+    if (loader) {
+      loader.classList.add("loaded");
+      loader.style.opacity = "0";
+      loader.style.visibility = "hidden";
+      loader.style.pointerEvents = "none";
     }
 
-    body.loader-fails .page-loader {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-    }
-  </style>
-</head>
+    document.body.classList.remove("no-scroll");
+  }, 1200);
+});
 
-<body>
 
-  <!-- PAGE LOADER -->
-  <div class="page-loader" id="pageLoader">
-    <div class="loader-content">
-      <div class="loader-brand">BEN'S COLLECTION</div>
+/* NAVBAR */
+window.addEventListener("scroll", function () {
+  const header = document.getElementById("siteHeader");
 
-      <div class="loader-line">
-        <span></span>
-      </div>
+  if (!header) return;
 
-      <div class="loader-year">
-        EST. 2026
-      </div>
-    </div>
-  </div>
+  if (window.scrollY > 40) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
 
 
-  <!-- NAVBAR -->
-  <header class="site-header" id="siteHeader">
+/* MOBILE MENU */
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
 
-    <nav class="navbar">
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", function () {
+    mobileMenu.classList.toggle("active");
+  });
 
-      <a href="#home" class="brand">
-        <span class="brand-main">BEN'S</span>
-        <span class="brand-sub">COLLECTION</span>
-      </a>
+  mobileMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileMenu.classList.remove("active");
+    });
+  });
+}
 
-      <div class="nav-links">
 
-        <a href="#home">HOME</a>
-        <a href="#collection">COLLECTION</a>
-        <a href="#story">OUR STORY</a>
-        <a href="#socials">SOCIAL</a>
-        <a href="#contact">CONTACT</a>
+/* PRODUCTS */
+function displayProducts() {
 
-      </div>
+  const container = document.getElementById("products");
 
-      <a href="#collection" class="nav-cta">
-        EXPLORE
-      </a>
+  if (!container) return;
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open menu"
-      >
-        <span></span>
-        <span></span>
-      </button>
+  container.innerHTML = "";
 
-    </nav>
+  products.forEach(function (product) {
 
+    container.innerHTML += `
+      <article class="product">
 
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-
-      <a href="#home">HOME</a>
-      <a href="#collection">COLLECTION</a>
-      <a href="#story">OUR STORY</a>
-      <a href="#socials">SOCIAL</a>
-      <a href="#contact">CONTACT</a>
-
-    </div>
-
-  </header>
-
-
-  <!-- HERO -->
-  <main>
-
-    <section class="hero" id="home">
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-
-        <div class="hero-eyebrow">
-          BEN'S COLLECTION
-        </div>
-
-        <h1>
-          TIMELESS
-          <span>ELEGANCE</span>
-        </h1>
-
-        <p>
-          A new expression of watchmaking.
-          Designed for those who define their own time.
-        </p>
-
-        <div class="hero-buttons">
-
-          <a href="#collection" class="btn btn-gold">
-            EXPLORE COLLECTION
-          </a>
-
-          <a href="#story" class="btn btn-outline">
-            DISCOVER BEN'S
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-bottom">
-
-        <div class="scroll-indicator">
-          <span></span>
-          <small>SCROLL TO EXPLORE</small>
-        </div>
-
-        <div class="hero-est">
-          EST. 2026
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- INTRO -->
-    <section class="intro section">
-
-      <div class="section-label">
-        01 — THE EXPERIENCE
-      </div>
-
-      <div class="intro-content">
-
-        <h2>
-          MORE THAN
-          <span>A WATCH.</span>
-        </h2>
-
-        <p>
-          A watch is more than an instrument that tells time.
-          It is a statement of identity, character and heritage.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- COLLECTION -->
-    <section class="collection section" id="collection">
-
-      <div class="section-heading">
-
-        <div>
-
-          <div class="section-label">
-            02 — THE COLLECTION
-          </div>
-
-          <h2>
-            TIMEPIECES
-            <span>FOR YOU.</span>
-          </h2>
-
-        </div>
-
-        <p>
-          Discover selected pieces designed to bring
-          timeless elegance to every moment.
-        </p>
-
-      </div>
-
-
-      <!-- PRODUCTS GENERATED BY SCRIPT.JS -->
-      <div
-        class="products-grid"
-        id="products"
-      ></div>
-
-    </section>
-
-
-    <!-- FEATURED -->
-    <section class="featured section">
-
-      <div class="featured-content">
-
-        <div class="section-label">
-          BEN'S COLLECTION
-        </div>
-
-        <h2>
-          WEAR
-          <span>YOUR MOMENT.</span>
-        </h2>
-
-        <p>
-          Every second becomes part of your story.
-          Choose the piece that represents you.
-        </p>
-
-        <a href="#collection" class="btn btn-gold">
-          VIEW COLLECTION
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- OUR STORY -->
-    <section
-      class="story section"
-      id="story"
-    >
-
-      <div class="story-grid">
-
-        <div class="story-number">
-          03
-        </div>
-
-        <div class="story-content">
-
-          <div class="section-label">
-            OUR STORY
-          </div>
-
-          <h2>
-            IDENTITY
-            <span>& HERITAGE.</span>
-          </h2>
-
-          <p>
-            Ben's Collection is more than a name.
-            It represents identity, character and a passion
-            for timeless design.
-          </p>
-
-          <p>
-            Our vision is simple:
-            create a modern watch experience while preserving
-            the elegance and emotion behind every timepiece.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SOCIAL -->
-    <section
-      class="socials section"
-      id="socials"
-    >
-
-      <div class="section-heading social-heading">
-
-        <div>
-
-          <div class="section-label">
-            04 — FOLLOW BEN'S
-          </div>
-
-          <h2>
-            STAY
-            <span>CONNECTED.</span>
-          </h2>
-
-        </div>
-
-        <p>
-          Follow Ben's Collection and discover new pieces,
-          launches and exclusive content.
-        </p>
-
-      </div>
-
-
-      <div class="social-grid">
-
-        <!-- INSTAGRAM -->
-        <a
-          href="https://www.instagram.com/bens_collection.17"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-card"
+        <img
+          class="product-image"
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
         >
 
-          <div class="social-icon">
-            IG
-          </div>
+        <div class="product-info">
 
-          <div>
-            <h3>Instagram</h3>
-            <p>@bens_collection.17</p>
-          </div>
+          <h3>${product.name}</h3>
 
-          <span class="social-arrow">
-            →
-          </span>
+          <p>${product.description}</p>
 
-        </a>
-
-
-        <!-- FACEBOOK -->
-        <a
-          href="https://www.facebook.com/share/1K7wEq5SY6/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-card"
-        >
-
-          <div class="social-icon">
-            FB
-          </div>
-
-          <div>
-            <h3>Facebook</h3>
-            <p>Ben's Collection</p>
-          </div>
-
-          <span class="social-arrow">
-            →
-          </span>
-
-        </a>
-
-
-        <!-- TIKTOK -->
-        <a
-          href="https://www.tiktok.com/@bens_collection.17"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-card"
-        >
-
-          <div class="social-icon">
-            TT
-          </div>
-
-          <div>
-            <h3>TikTok</h3>
-            <p>@bens_collection.17</p>
-          </div>
-
-          <span class="social-arrow">
-            →
-          </span>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTACT CTA -->
-    <section
-      class="contact section"
-      id="contact"
-    >
-
-      <div class="contact-content">
-
-        <div class="section-label">
-          05 — CONTACT
-        </div>
-
-        <h2>
-          YOUR TIME.
-          <span>YOUR STYLE.</span>
-        </h2>
-
-        <p>
-          Ready to discover your next timepiece?
-          Explore the collection or contact us directly.
-        </p>
-
-        <div class="contact-buttons">
-
-          <a
-            href="#collection"
-            class="btn btn-gold"
-          >
-            SHOP COLLECTION
-          </a>
-
-          <a
-            href="https://wa.me/212770190265"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-outline"
-          >
-            WHATSAPP
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer class="footer">
-
-    <div class="footer-brand">
-
-      <div class="brand-main">
-        BEN'S
-      </div>
-
-      <div class="brand-sub">
-        COLLECTION
-      </div>
-
-    </div>
-
-
-    <div class="footer-slogan">
-      TIMELESS ELEGANCE
-    </div>
-
-
-    <div class="footer-socials">
-
-      <a
-        href="https://www.instagram.com/bens_collection.17"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram
-      </a>
-
-      <a
-        href="https://www.facebook.com/share/1K7wEq5SY6/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Facebook
-      </a>
-
-      <a
-        href="https://www.tiktok.com/@bens_collection.17"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TikTok
-      </a>
-
-      <a
-        href="https://wa.me/212770190265"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WhatsApp
-      </a>
-
-    </div>
-
-
-    <div class="footer-bottom">
-      © 2026 Ben's Collection. All rights reserved.
-    </div>
-
-  </footer>
-
-
-  <!-- PRODUCT MODAL -->
-  <div
-    class="modal"
-    id="productModal"
-    aria-hidden="true"
-  >
-
-    <div class="modal-overlay"></div>
-
-    <div class="modal-box product-modal-box">
-
-      <button
-        class="modal-close"
-        onclick="closeProduct()"
-        aria-label="Close"
-      >
-        ×
-      </button>
-
-
-      <div class="modal-product">
-
-        <div class="modal-image-wrap">
-
-          <img
-            id="modalImage"
-            src=""
-            alt="Product"
-          >
-
-        </div>
-
-
-        <div class="modal-info">
-
-          <div class="section-label">
-            BEN'S COLLECTION
-          </div>
-
-          <h2 id="modalName">
-            Product
-          </h2>
-
-          <p id="modalDescription">
-            Product description.
+          <p class="price">
+            ${product.price.toFixed(2)} MAD
           </p>
-
-          <div
-            class="modal-price"
-            id="modalPrice"
-          >
-            0.00 MAD
-          </div>
 
           <button
-            class="btn btn-gold modal-order-btn"
-            onclick="openCheckout()"
+            class="product-btn"
+            onclick="openProduct(${product.id})"
           >
-            COMMANDER
+            VIEW DETAILS
           </button>
 
         </div>
 
-      </div>
+      </article>
+    `;
+  });
+}
 
-    </div>
 
-  </div>
+/* OPEN PRODUCT */
+function openProduct(id) {
 
+  selectedProduct = products.find(function (product) {
+    return product.id === id;
+  });
 
-  <!-- CHECKOUT MODAL -->
-  <div
-    class="modal"
-    id="checkoutModal"
-    aria-hidden="true"
-  >
+  if (!selectedProduct) return;
 
-    <div class="modal-overlay"></div>
+  const modal = document.getElementById("productModal");
+  const image = document.getElementById("modalImage");
+  const name = document.getElementById("modalName");
+  const description = document.getElementById("modalDescription");
+  const price = document.getElementById("modalPrice");
 
-    <div class="modal-box checkout-modal-box">
+  if (image) {
+    image.src = selectedProduct.image;
+    image.alt = selectedProduct.name;
+  }
 
-      <button
-        class="modal-close"
-        onclick="closeCheckout()"
-        aria-label="Close"
-      >
-        ×
-      </button>
+  if (name) {
+    name.textContent = selectedProduct.name;
+  }
 
+  if (description) {
+    description.textContent = selectedProduct.description;
+  }
 
-      <div class="checkout-header">
+  if (price) {
+    price.textContent = selectedProduct.price.toFixed(2) + " MAD";
+  }
 
-        <div class="section-label">
-          BEN'S COLLECTION
-        </div>
+  if (modal) {
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+  }
+}
 
-        <h2>
-          FINALIZE
-          <span>YOUR ORDER.</span>
-        </h2>
 
-      </div>
+/* CLOSE PRODUCT */
+function closeProduct() {
 
+  const modal = document.getElementById("productModal");
 
-      <div class="checkout-product">
+  if (!modal) return;
 
-        <img
-          id="checkoutImage"
-          src=""
-          alt="Product"
-        >
+  modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
 
-        <div>
+  document.body.classList.remove("no-scroll");
+}
 
-          <h3 id="checkoutName">
-            Product
-          </h3>
 
-          <div
-            id="checkoutPrice"
-            class="checkout-price"
-          >
-            0.00 MAD
-          </div>
+/* CHECKOUT */
+function openCheckout() {
 
-        </div>
+  if (!selectedProduct) return;
 
-      </div>
+  closeProduct();
 
+  const image = document.getElementById("checkoutImage");
+  const name = document.getElementById("checkoutName");
+  const price = document.getElementById("checkoutPrice");
+  const total = document.getElementById("totalPrice");
+  const modal = document.getElementById("checkoutModal");
 
-      <form
-        id="orderForm"
-        class="checkout-form"
-      >
+  if (image) {
+    image.src = selectedProduct.image;
+    image.alt = selectedProduct.name;
+  }
 
-        <div class="form-grid">
+  if (name) {
+    name.textContent = selectedProduct.name;
+  }
 
-          <div class="form-group">
+  if (price) {
+    price.textContent = selectedProduct.price.toFixed(2) + " MAD";
+  }
 
-            <label for="customerName">
-              FULL NAME
-            </label>
+  if (total) {
+    total.textContent = selectedProduct.price.toFixed(2) + " MAD";
+  }
 
-            <input
-              type="text"
-              id="customerName"
-              placeholder="Your full name"
-              required
-            >
+  if (modal) {
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+  }
+}
 
-          </div>
 
+/* CLOSE CHECKOUT */
+function closeCheckout() {
 
-          <div class="form-group">
+  const modal = document.getElementById("checkoutModal");
 
-            <label for="customerPhone">
-              PHONE
-            </label>
+  if (!modal) return;
 
-            <input
-              type="tel"
-              id="customerPhone"
-              placeholder="06XXXXXXXX"
-              required
-            >
+  modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
 
-          </div>
+  document.body.classList.remove("no-scroll");
+}
 
 
-          <div class="form-group">
+/* ORDER */
+const orderForm = document.getElementById("orderForm");
 
-            <label for="customerCity">
-              CITY
-            </label>
+if (orderForm) {
 
-            <input
-              type="text"
-              id="customerCity"
-              placeholder="Your city"
-              required
-            >
+  orderForm.addEventListener("submit", function (event) {
 
-          </div>
+    event.preventDefault();
 
+    if (!selectedProduct) return;
 
-          <div class="form-group form-full">
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const city = document.getElementById("customerCity").value.trim();
+    const address = document.getElementById("customerAddress").value.trim();
+    const note = document.getElementById("customerNote").value.trim();
 
-            <label for="customerAddress">
-              ADDRESS
-            </label>
+    const message =
+`🕰️ *BEN'S COLLECTION — NOUVELLE COMMANDE*
 
-            <input
-              type="text"
-              id="customerAddress"
-              placeholder="Delivery address"
-              required
-            >
+⌚ *Produit :*
+${selectedProduct.name}
 
-          </div>
+💰 *Prix :*
+${selectedProduct.price.toFixed(2)} MAD
 
+👤 *Nom :*
+${name}
 
-          <div class="form-group form-full">
+📞 *Téléphone :*
+${phone}
 
-            <label for="customerNote">
-              NOTE — OPTIONAL
-            </label>
+📍 *Ville :*
+${city}
 
-            <textarea
-              id="customerNote"
-              rows="3"
-              placeholder="Additional information..."
-            ></textarea>
+🏠 *Adresse :*
+${address}
 
-          </div>
+📝 *Note :*
+${note || "Aucune"}
 
-        </div>
+💵 *Paiement :*
+À LA LIVRAISON
 
+━━━━━━━━━━━━━━━━━━
+BEN'S COLLECTION
+TIMELESS ELEGANCE
+━━━━━━━━━━━━━━━━━━`;
 
-        <div class="payment-method">
+    const whatsappURL =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(message);
 
-          <div class="payment-title">
-            PAYMENT METHOD
-          </div>
+    window.open(whatsappURL, "_blank");
+  });
+}
 
-          <label class="payment-option">
 
-            <input
-              type="radio"
-              name="payment"
-              value="cod"
-              checked
-            >
+/* CLOSE MODALS */
+window.addEventListener("click", function (event) {
 
-            <span>
-              Paiement à la livraison
-            </span>
+  const productModal = document.getElementById("productModal");
+  const checkoutModal = document.getElementById("checkoutModal");
 
-          </label>
+  if (productModal && event.target === productModal) {
+    closeProduct();
+  }
 
-        </div>
+  if (checkoutModal && event.target === checkoutModal) {
+    closeCheckout();
+  }
+});
 
 
-        <div class="checkout-total">
+/* ESC */
+document.addEventListener("keydown", function (event) {
 
-          <span>
-            TOTAL
-          </span>
+  if (event.key === "Escape") {
 
-          <strong id="totalPrice">
-            0.00 MAD
-          </strong>
+    closeProduct();
+    closeCheckout();
 
-        </div>
-
-
-        <button
-          type="submit"
-          class="btn btn-gold checkout-submit"
-        >
-          CONFIRMER LA COMMANDE
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       EMERGENCY LOADER SYSTEM
-       ===================================================== -->
-
-  <script>
-
-    function forceHideLoader() {
-
-      var loader =
-        document.getElementById("pageLoader");
-
-      if (loader) {
-
-        loader.classList.add("loaded");
-
-        loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
-        loader.style.pointerEvents = "none";
-
-      }
-
-      document.body.classList.remove("no-scroll");
-      document.body.classList.add("loader-fails");
-
+    if (mobileMenu) {
+      mobileMenu.classList.remove("active");
     }
+  }
+});
 
 
-    /*
-      Normal page loading:
-      hide loader after 1.2 seconds.
-    */
-
-    window.addEventListener(
-      "load",
-      function () {
-
-        setTimeout(
-          forceHideLoader,
-          1200
-        );
-
-      }
-    );
-
-
-    /*
-      Emergency backup:
-      even if another JavaScript file crashes,
-      the loader will disappear after 4 seconds.
-    */
-
-    setTimeout(
-      forceHideLoader,
-      4000
-    );
-
-  </script>
-
-
-  <!-- MAIN JAVASCRIPT -->
-  <script src="script.js"></script>
-
-
-  <!-- FINAL LOADER SAFETY -->
-  <script>
-
-    /*
-      If script.js finishes loading,
-      make absolutely sure the loader disappears.
-    */
-
-    setTimeout(
-      forceHideLoader,
-      5000
-    );
-
-  </script>
-
-
-</body>
-</html>
+/* START */
+displayProducts();
