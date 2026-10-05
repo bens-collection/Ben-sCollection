@@ -1,5 +1,6 @@
+```javascript
 /* =========================================================
-   BEN'S COLLECTION — V2 SCRIPT
+   BEN'S COLLECTION — V3 SCRIPT
    ========================================================= */
 
 const WHATSAPP_NUMBER = "212770190265";
@@ -23,7 +24,17 @@ const products = [
     id: 2,
     name: "Rolex Day-Date",
     price: 279.99,
-    image: "images/rolex-daydate.jpg",
+
+    // 3 IMAGES UNIQUEMENT
+    images: [
+      "images/daydate/rolex-daydate-1.jpg",
+      "images/daydate/rolex-daydate-2.jpg",
+      "images/daydate/rolex-daydate-3.jpg"
+    ],
+
+    // Première image affichée sur la carte
+    image: "images/daydate/rolex-daydate-1.jpg",
+
     description:
       "Design premium et présence élégante pour toutes les occasions."
   },
@@ -219,33 +230,60 @@ function openProduct(id) {
     document.getElementById("modalPrice");
 
 
+  /*
+   * DAY-DATE:
+   * Kanbdaou b image 1.
+   * Les 3 images kaynin f selectedProduct.images.
+   */
+
   if (image) {
-    image.src = selectedProduct.image;
-    image.alt = selectedProduct.name;
+
+    image.src =
+      selectedProduct.image;
+
+    image.alt =
+      selectedProduct.name;
+
   }
+
 
   if (name) {
+
     name.textContent =
       selectedProduct.name;
+
   }
+
 
   if (description) {
+
     description.textContent =
       selectedProduct.description;
+
   }
 
+
   if (price) {
+
     price.textContent =
-      selectedProduct.price.toFixed(2) + " MAD";
+      selectedProduct.price.toFixed(2) +
+      " MAD";
+
   }
 
 
   if (modal) {
 
     modal.style.display = "flex";
-    modal.setAttribute("aria-hidden", "false");
 
-    document.body.classList.add("no-scroll");
+    modal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.classList.add(
+      "no-scroll"
+    );
 
   }
 
@@ -265,9 +303,15 @@ function closeProduct() {
 
 
   modal.style.display = "none";
-  modal.setAttribute("aria-hidden", "true");
 
-  document.body.classList.remove("no-scroll");
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "no-scroll"
+  );
 
 }
 
@@ -301,31 +345,39 @@ function openCheckout() {
 
 
   if (image) {
+
     image.src =
       selectedProduct.image;
 
     image.alt =
       selectedProduct.name;
+
   }
 
 
   if (name) {
+
     name.textContent =
       selectedProduct.name;
+
   }
 
 
   if (price) {
+
     price.textContent =
       selectedProduct.price.toFixed(2) +
       " MAD";
+
   }
 
 
   if (total) {
+
     total.textContent =
       selectedProduct.price.toFixed(2) +
       " MAD";
+
   }
 
 
@@ -535,9 +587,11 @@ document.addEventListener(
       closeCheckout();
 
       if (mobileMenu) {
+
         mobileMenu.classList.remove(
           "active"
         );
+
       }
 
     }
@@ -551,3 +605,4 @@ document.addEventListener(
    ========================= */
 
 displayProducts();
+```
